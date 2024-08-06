@@ -1,13 +1,13 @@
 import React from "react";
 import { IconType } from "react-icons";
 
-interface CardInfo {
+interface MottoCardInfo {
   icon: IconType;
   title: string;
   description: string;
 }
 
-const CardLayout = ({ icon: Icon, title, description }: CardInfo) => {
+const MottoCardLayout = ({ icon: Icon, title, description }: MottoCardInfo) => {
   return (
     <div className="border-2 border-t-[6px] border-t-[#FF5E14] py-8 px-6 rounded-xl">
       <div>
@@ -23,4 +23,4 @@ const CardLayout = ({ icon: Icon, title, description }: CardInfo) => {
   );
 };
 
-export default CardLayout;
+export default MottoCardLayout;

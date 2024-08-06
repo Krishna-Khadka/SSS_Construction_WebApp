@@ -1,4 +1,5 @@
-import Card from "@/components/cards/Card";
+import MottoCard from "@/components/mottoCard/MottoCard";
+
 
 export default function Home() {
   return (
@@ -19,7 +20,7 @@ export default function Home() {
           </div>
         </div>
         <div className="py-16">
-          <Card />
+          <MottoCard />
         </div>
       </div>
     </>

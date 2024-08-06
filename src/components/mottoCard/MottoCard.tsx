@@ -1,9 +1,9 @@
 import { FaLightbulb } from "react-icons/fa";
 import { PiStepsFill } from "react-icons/pi";
 import { FaThumbsUp, FaUserCog } from "react-icons/fa";
-import CardLayout from "./CardLayout";
+import MottoCardLayout from "./MottoCardLayout";
 
-const infos = [
+const Mottoinfos = [
   {
     icon: FaLightbulb,
     title: "great ideas",
@@ -30,11 +30,11 @@ const infos = [
   },
 ];
 
-const Card = () => {
+const MottoCard = () => {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-      {infos.map((info, index) => (
-        <CardLayout
+      {Mottoinfos.map((info, index) => (
+        <MottoCardLayout
           key={index}
           icon={info.icon}
           title={info.title}
@@ -45,4 +45,4 @@ const Card = () => {
   );
 };
 
-export default Card;
+export default MottoCard;
