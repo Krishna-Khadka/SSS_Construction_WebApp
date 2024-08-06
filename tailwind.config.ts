@@ -10,7 +10,7 @@ const config: Config = {
     extend: {
       colors: {
         "main-color": "#FF0000",
-        "secondary=color": "#002060"
+        "secondary-color": "#002060"
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",

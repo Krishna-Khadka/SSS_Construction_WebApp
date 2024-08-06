@@ -9,9 +9,9 @@ interface MottoCardInfo {
 
 const MottoCardLayout = ({ icon: Icon, title, description }: MottoCardInfo) => {
   return (
-    <div className="border-2 border-t-[6px] border-t-[#FF5E14] py-8 px-6 rounded-xl">
+    <div className="border-2 border-t-[6px] border-t-main-color py-8 px-6 rounded-xl">
       <div>
-        <Icon className="text-5xl text-[#FF5E14]" />
+        <Icon className="text-5xl text-main-color" />
       </div>
       <div>
         <h2 className="capitalize font-semibold text-[22px] text-[#0E121D] pt-4">

@@ -7,3 +7,10 @@
     padding: 0 15px;
     max-width: 1200px; /* or any desired width */
 }
+
+.counter-bg {
+    background: linear-gradient(#000D,#000E), url(../../public/counterBG.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 80px 0;
+}
