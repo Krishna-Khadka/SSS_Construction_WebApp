@@ -20,99 +20,110 @@ const Choose = () => {
     <>
       <div className="py-20">
         <div className="container">
-          <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 gap-4">
-            <div>
-              <div className="flex gap-4">
-                <div className="custom-bl-radius bg-main-color text-white h-16 w-28 flex items-center justify-center">
-                  <FaShieldAlt className="text-4xl" />
+          <div className="text-center">
+            <h2 className="text-[36px] text-[#0E121D] font-bold">
+              Why Work With Us
+            </h2>
+            <p className="text-[#7C7C7C] text-base">
+              Collaboratively administrate empowered markets via plug-and-play
+              networks.
+            </p>
+          </div>
+          <div className="mt-16">
+            <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 gap-4">
+              <div>
+                <div className="flex gap-4">
+                  <div className="custom-bl-radius bg-main-color text-white h-16 w-28 flex items-center justify-center">
+                    <FaShieldAlt className="text-4xl" />
+                  </div>
+                  <div>
+                    <h5 className="text-xl text-[#303030] font-bold">
+                      Zero Harm
+                    </h5>
+                    <p className="text-[#7C7C7C] text-[15px] py-3">
+                      Uemo enim ipsam laoreet quia voluptas sit aspernatur odit
+                      fugit ipsum.
+                    </p>
+                  </div>
                 </div>
-                <div>
-                  <h5 className="text-xl text-[#303030] font-bold">
-                    Zero Harm
-                  </h5>
-                  <p className="text-[#7C7C7C] text-[15px] py-3">
-                    Uemo enim ipsam laoreet quia voluptas sit aspernatur odit
-                    fugit ipsum.
-                  </p>
+                <div className="flex gap-4 mt-8">
+                  <div className="custom-bl-radius bg-main-color text-white h-16 w-28 flex items-center justify-center">
+                    <FaRecycle className="text-4xl" />
+                  </div>
+                  <div>
+                    <h5 className="text-xl text-[#303030] font-bold">
+                      Zero Waste
+                    </h5>
+                    <p className="text-[#7C7C7C] text-[15px] py-3">
+                      Uemo enim ipsam laoreet quia voluptas sit aspernatur odit
+                      fugit ipsum.
+                    </p>
+                  </div>
                 </div>
-              </div>
-              <div className="flex gap-4 mt-8">
-                <div className="custom-bl-radius bg-main-color text-white h-16 w-28 flex items-center justify-center">
-                  <FaRecycle className="text-4xl" />
-                </div>
-                <div>
-                  <h5 className="text-xl text-[#303030] font-bold">
-                    Zero Waste
-                  </h5>
-                  <p className="text-[#7C7C7C] text-[15px] py-3">
-                    Uemo enim ipsam laoreet quia voluptas sit aspernatur odit
-                    fugit ipsum.
-                  </p>
-                </div>
-              </div>
-              <div className="flex gap-4 mt-8">
-                <div className="custom-bl-radius bg-main-color text-white h-16 w-28 flex items-center justify-center">
-                  <MdSupportAgent className="text-4xl" />
-                </div>
-                <div>
-                  <h5 className="text-xl text-[#303030] font-bold">
-                    Client Advocacy
-                  </h5>
-                  <p className="text-[#7C7C7C] text-[15px] py-3">
-                    Uemo enim ipsam laoreet quia voluptas sit aspernatur odit
-                    fugit ipsum.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div>
-              <Image
-                src={worker}
-                alt="Worker Image"
-                className="max-w-full h-full"
-              />
-            </div>
-            <div>
-              <div className="flex gap-4">
-                <div className="custom-bl-radius bg-main-color text-white h-16 w-28 flex items-center justify-center">
-                  <FaUsersCog className="text-4xl" />
-                </div>
-                <div>
-                  <h5 className="text-xl text-[#303030] font-bold">
-                    Diverse Expertise
-                  </h5>
-                  <p className="text-[#7C7C7C] text-[15px] py-3">
-                    Uemo enim ipsam laoreet quia voluptas sit aspernatur odit
-                    fugit ipsum.
-                  </p>
+                <div className="flex gap-4 mt-8">
+                  <div className="custom-bl-radius bg-main-color text-white h-16 w-28 flex items-center justify-center">
+                    <MdSupportAgent className="text-4xl" />
+                  </div>
+                  <div>
+                    <h5 className="text-xl text-[#303030] font-bold">
+                      Client Advocacy
+                    </h5>
+                    <p className="text-[#7C7C7C] text-[15px] py-3">
+                      Uemo enim ipsam laoreet quia voluptas sit aspernatur odit
+                      fugit ipsum.
+                    </p>
+                  </div>
                 </div>
               </div>
-              <div className="flex gap-4 mt-8">
-                <div className="custom-bl-radius bg-main-color text-white h-16 w-28 flex items-center justify-center">
-                  <FaHandsHelping className="text-4xl" />
-                </div>
-                <div>
-                  <h5 className="text-xl text-[#303030] font-bold">
-                    Giving Back
-                  </h5>
-                  <p className="text-[#7C7C7C] text-[15px] py-3">
-                    Uemo enim ipsam laoreet quia voluptas sit aspernatur odit
-                    fugit ipsum.
-                  </p>
-                </div>
+              <div>
+                <Image
+                  src={worker}
+                  alt="Worker Image"
+                  className="max-w-full h-full"
+                />
               </div>
-              <div className="flex gap-4 mt-8">
-                <div className="custom-bl-radius bg-main-color text-white h-16 w-28 flex items-center justify-center">
-                  <MdHistory className="text-4xl" />
+              <div>
+                <div className="flex gap-4">
+                  <div className="custom-bl-radius bg-main-color text-white h-16 w-28 flex items-center justify-center">
+                    <FaUsersCog className="text-4xl" />
+                  </div>
+                  <div>
+                    <h5 className="text-xl text-[#303030] font-bold">
+                      Diverse Expertise
+                    </h5>
+                    <p className="text-[#7C7C7C] text-[15px] py-3">
+                      Uemo enim ipsam laoreet quia voluptas sit aspernatur odit
+                      fugit ipsum.
+                    </p>
+                  </div>
                 </div>
-                <div>
-                  <h5 className="text-xl text-[#303030] font-bold">
-                    We&#39;ve Proud Past
-                  </h5>
-                  <p className="text-[#7C7C7C] text-[15px] py-3">
-                    Uemo enim ipsam laoreet quia voluptas sit aspernatur odit
-                    fugit ipsum.
-                  </p>
+                <div className="flex gap-4 mt-8">
+                  <div className="custom-bl-radius bg-main-color text-white h-16 w-28 flex items-center justify-center">
+                    <FaHandsHelping className="text-4xl" />
+                  </div>
+                  <div>
+                    <h5 className="text-xl text-[#303030] font-bold">
+                      Giving Back
+                    </h5>
+                    <p className="text-[#7C7C7C] text-[15px] py-3">
+                      Uemo enim ipsam laoreet quia voluptas sit aspernatur odit
+                      fugit ipsum.
+                    </p>
+                  </div>
+                </div>
+                <div className="flex gap-4 mt-8">
+                  <div className="custom-bl-radius bg-main-color text-white h-16 w-28 flex items-center justify-center">
+                    <MdHistory className="text-4xl" />
+                  </div>
+                  <div>
+                    <h5 className="text-xl text-[#303030] font-bold">
+                      We&#39;ve Proud Past
+                    </h5>
+                    <p className="text-[#7C7C7C] text-[15px] py-3">
+                      Uemo enim ipsam laoreet quia voluptas sit aspernatur odit
+                      fugit ipsum.
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
