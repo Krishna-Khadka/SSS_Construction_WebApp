@@ -35,7 +35,7 @@ const HomeAboutContent = () => {
           Giving back to the community is deeply ingrained in our culture.
           Through philanthropic initiatives and partnerships, we make a positive
           impact. Join us on this exciting journey to build exceptional projects
-          and create a nurturing environment that values every individual's
+          and create a nurturing environment that values every individuals
           contribution. We highly believe that “Together, We Make a Difference”.
         </p>
       </div>
