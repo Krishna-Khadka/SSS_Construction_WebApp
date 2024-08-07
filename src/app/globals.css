@@ -9,6 +9,10 @@
     /* or any desired width */
 }
 
+.custom-bl-radius {
+    border-bottom-left-radius: 20px;
+  }
+
 .counter-bg {
     background: linear-gradient(#000D, #000E), url(../../public/counterBG.jpg);
     background-size: cover;

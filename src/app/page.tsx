@@ -1,3 +1,4 @@
+import Choose from "@/components/choose/Choose";
 import Counter from "@/components/counter/Counter";
 import HomeAbout from "@/components/homeAbout/HomeAbout";
 import MottoCard from "@/components/mottoCard/MottoCard";
@@ -7,6 +8,9 @@ export default function Home() {
     <>
       <div>
         <HomeAbout />
+      </div>
+      <div>
+        <Choose />
       </div>
       <div className="container">
         <div className="bg-main-color p-6 rounded-xl">
