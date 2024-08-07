@@ -2,6 +2,7 @@ import Choose from "@/components/choose/Choose";
 import Counter from "@/components/counter/Counter";
 import HomeAbout from "@/components/homeAbout/HomeAbout";
 import MottoCard from "@/components/mottoCard/MottoCard";
+import Testimonial from "@/components/testimonial/Testimonial";
 
 export default function Home() {
   return (
@@ -33,6 +34,9 @@ export default function Home() {
       </div>
       <div>
         <Counter />
+      </div>
+      <div>
+        <Testimonial />
       </div>
     </>
   );

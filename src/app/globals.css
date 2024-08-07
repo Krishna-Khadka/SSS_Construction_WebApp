@@ -11,7 +11,14 @@
 
 .custom-bl-radius {
     border-bottom-left-radius: 20px;
-  }
+}
+
+.Testimonial-bg {
+    background: linear-gradient(#000E, #000E), url(../../public/testimonial-bg.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 80px 0; 
+}
 
 .counter-bg {
     background: linear-gradient(#000D, #000E), url(../../public/counterBG.jpg);
