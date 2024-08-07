@@ -1,10 +1,13 @@
 import Counter from "@/components/counter/Counter";
+import HomeAbout from "@/components/homeAbout/HomeAbout";
 import MottoCard from "@/components/mottoCard/MottoCard";
-
 
 export default function Home() {
   return (
     <>
+      <div>
+        <HomeAbout />
+      </div>
       <div className="container">
         <div className="bg-main-color p-6 rounded-xl">
           <div className="flex justify-between items-center flex-wrap gap-3">
