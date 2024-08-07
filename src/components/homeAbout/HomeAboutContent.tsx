@@ -1,5 +1,5 @@
 import React from "react";
-import signature from "../../../public/signature.png"
+import signature from "../../../public/signature.png";
 import Image from "next/image";
 
 const HomeAboutContent = () => {
@@ -22,22 +22,28 @@ const HomeAboutContent = () => {
         </h1>
       </div>
       <div>
-        <p className="text-[#64656a] text-base tracking-wider leading-[28px]">
-          Donec scelerisque dolor id nunc dictum, interdum gravida mauris
-          rhoncus. Aliquam at ultrices nunc. In sem leo, fermentum at lorem in,
-          porta finibus mauris. Aliquam consectetur, ex in gravida porttitor,
+        <p className="text-[#64656a] text-base tracking-wider leading-[28px] text-justify">
+          We are the construction, engineering, and management professionals
+          having years of experiences in the industry. Our vibrant and dynamic
+          culture, we proudly called it SSNian culture, prioritizes fun at work,
+          fostering collaboration, creativity, and job satisfaction. We
+          celebrate diversity and inclusion, valuing unique talents and
+          perspectives that drive innovation.
         </p>
-        <p className="text-[#64656a] text-base tracking-wider leading-[28px] pt-4">
-          Donec scelerisque dolor id nunc dictum, interdum gravida mauris
-          rhoncus. Aliquam at ultrices nunc. In sem leo, fermentum at lorem in,
-          porta finibus mauris.
+        <p className="text-[#64656a] text-base tracking-wider leading-[28px] pt-4 text-justify">
+          Our inclusive environment empowers everyone to contribute their best.
+          Giving back to the community is deeply ingrained in our culture.
+          Through philanthropic initiatives and partnerships, we make a positive
+          impact. Join us on this exciting journey to build exceptional projects
+          and create a nurturing environment that values every individual's
+          contribution. We highly believe that “Together, We Make a Difference”.
         </p>
       </div>
       <div className="block pt-14">
-        <Image 
-        src={signature}
-        alt="Signature Image"
-        className="max-w-full h-full object-cover"
+        <Image
+          src={signature}
+          alt="Signature Image"
+          className="max-w-full h-full object-cover"
         />
       </div>
     </>
