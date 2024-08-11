@@ -1,5 +1,7 @@
 import Choose from "@/components/choose/Choose";
 import Counter from "@/components/counter/Counter";
+import Hero from "@/components/hero/Hero";
+
 import HomeAbout from "@/components/homeAbout/HomeAbout";
 import MottoCard from "@/components/mottoCard/MottoCard";
 import Testimonial from "@/components/testimonial/Testimonial";
@@ -7,6 +9,7 @@ import Testimonial from "@/components/testimonial/Testimonial";
 export default function Home() {
   return (
     <>
+      <Hero />
       <div>
         <HomeAbout />
       </div>

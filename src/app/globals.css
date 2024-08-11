@@ -9,6 +9,13 @@
     /* or any desired width */
 }
 
+.hero-bg {
+    background: linear-gradient(#0008,#0009), url(../../public/slider1.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 90dvh;
+}
+
 .custom-bl-radius {
     border-bottom-left-radius: 20px;
 }
