@@ -32,15 +32,17 @@ const Mottoinfos = [
 
 const MottoCard = () => {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-      {Mottoinfos.map((info, index) => (
-        <MottoCardLayout
-          key={index}
-          icon={info.icon}
-          title={info.title}
-          description={info.description}
-        />
-      ))}
+    <div className="container">
+      <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {Mottoinfos.map((info, index) => (
+          <MottoCardLayout
+            key={index}
+            icon={info.icon}
+            title={info.title}
+            description={info.description}
+          />
+        ))}
+      </div>
     </div>
   );
 };
