@@ -2,6 +2,7 @@ import Choose from "@/components/choose/Choose";
 import Counter from "@/components/counter/Counter";
 import Hero from "@/components/hero/Hero";
 import HomeAbout from "@/components/homeAbout/HomeAbout";
+import Insight from "@/components/insight/Insight";
 import MottoCard from "@/components/mottoCard/MottoCard";
 import Project from "@/components/project/Project";
 import Testimonial from "@/components/testimonial/Testimonial";
@@ -43,6 +44,9 @@ export default function Home() {
       </div>
       <div>
         <Project />
+      </div>
+      <div className="py-20">
+        <Insight />
       </div>
       <div>
         <Testimonial />
