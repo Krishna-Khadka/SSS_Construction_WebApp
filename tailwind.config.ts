@@ -10,7 +10,22 @@ const config: Config = {
     extend: {
       colors: {
         "main-color": "#FF0000",
-        "secondary-color": "#002060"
+        "secondary-color": "#002060",
+        'primary-500': '#3b82f6',
+      },
+      animation: {
+        'bg-slide': 'bg-slide 0.5s ease-in-out forwards',
+        'bg-slide-reverse': 'bg-slide-reverse 0.5s ease-in-out forwards',
+      },
+      keyframes: {
+        'bg-slide': {
+          '0%': { transform: 'translateX(-100%)' },
+          '100%': { transform: 'translateX(0)' },
+        },
+        'bg-slide-reverse': {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-100%)' },
+        },
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",

@@ -1,19 +1,17 @@
 import React from "react";
 
 import {
-  FaShieldAlt,
-  FaRecycle,
-  FaHandshake,
-  FaUsersCog,
-  FaHandsHelping,
-  FaAward,
+  FaGraduationCap,
+  FaCogs,
+  FaClock,
+  FaThumbsUp,
+  FaLeaf,
+  FaHammer,
 } from "react-icons/fa";
 
 import { MdSupportAgent, MdHistory } from "react-icons/md";
 import worker from "../../../public/worker-choose.png";
 import Image from "next/image";
-
-interface ChooseLeftAreas {}
 
 const Choose = () => {
   return (
@@ -30,47 +28,44 @@ const Choose = () => {
             </p>
           </div>
           <div className="mt-16">
-            <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 gap-4 place-items-center">
               <div>
                 <div className="flex gap-4">
                   <div className="custom-bl-radius bg-main-color text-white h-16 w-28 flex items-center justify-center">
-                    <FaShieldAlt className="text-4xl" />
+                    <FaGraduationCap className="text-4xl" />
                   </div>
                   <div>
                     <h5 className="text-xl text-[#303030] font-bold">
-                      Zero Harm
+                      Expertise
                     </h5>
                     <p className="text-[#7C7C7C] text-[15px] py-3">
-                      Uemo enim ipsam laoreet quia voluptas sit aspernatur odit
-                      fugit ipsum.
+                      Building Your Dreams With Precision
                     </p>
                   </div>
                 </div>
-                <div className="flex gap-4 mt-8">
+                <div className="flex gap-4 mt-10">
                   <div className="custom-bl-radius bg-main-color text-white h-16 w-28 flex items-center justify-center">
-                    <FaRecycle className="text-4xl" />
+                    <FaCogs className="text-4xl" />
                   </div>
                   <div>
                     <h5 className="text-xl text-[#303030] font-bold">
-                      Zero Waste
+                      Tailored Solutions
                     </h5>
                     <p className="text-[#7C7C7C] text-[15px] py-3">
-                      Uemo enim ipsam laoreet quia voluptas sit aspernatur odit
-                      fugit ipsum.
+                      Your Vision, Our Blueprint
                     </p>
                   </div>
                 </div>
-                <div className="flex gap-4 mt-8">
+                <div className="flex gap-4 mt-10">
                   <div className="custom-bl-radius bg-main-color text-white h-16 w-28 flex items-center justify-center">
-                    <MdSupportAgent className="text-4xl" />
+                    <FaLeaf className="text-4xl" />
                   </div>
                   <div>
                     <h5 className="text-xl text-[#303030] font-bold">
-                      Client Advocacy
+                      Sustainable Practices
                     </h5>
                     <p className="text-[#7C7C7C] text-[15px] py-3">
-                      Uemo enim ipsam laoreet quia voluptas sit aspernatur odit
-                      fugit ipsum.
+                      Building for the Future, Responsibly
                     </p>
                   </div>
                 </div>
@@ -85,43 +80,40 @@ const Choose = () => {
               <div>
                 <div className="flex gap-4">
                   <div className="custom-bl-radius bg-main-color text-white h-16 w-28 flex items-center justify-center">
-                    <FaUsersCog className="text-4xl" />
+                    <FaClock className="text-4xl" />
                   </div>
                   <div>
                     <h5 className="text-xl text-[#303030] font-bold">
-                      Diverse Expertise
+                      Timely Completion
                     </h5>
                     <p className="text-[#7C7C7C] text-[15px] py-3">
-                      Uemo enim ipsam laoreet quia voluptas sit aspernatur odit
-                      fugit ipsum.
+                      Delivering on Promises, Every Time
                     </p>
                   </div>
                 </div>
-                <div className="flex gap-4 mt-8">
+                <div className="flex gap-4 mt-10">
                   <div className="custom-bl-radius bg-main-color text-white h-16 w-28 flex items-center justify-center">
-                    <FaHandsHelping className="text-4xl" />
+                    <FaThumbsUp className="text-4xl" />
                   </div>
                   <div>
                     <h5 className="text-xl text-[#303030] font-bold">
-                      Giving Back
+                      Satisfaction Guaranteed
                     </h5>
                     <p className="text-[#7C7C7C] text-[15px] py-3">
-                      Uemo enim ipsam laoreet quia voluptas sit aspernatur odit
-                      fugit ipsum.
+                      Your Delight, Our Standard
                     </p>
                   </div>
                 </div>
-                <div className="flex gap-4 mt-8">
+                <div className="flex gap-4 mt-10">
                   <div className="custom-bl-radius bg-main-color text-white h-16 w-28 flex items-center justify-center">
-                    <MdHistory className="text-4xl" />
+                    <FaHammer className="text-4xl" />
                   </div>
                   <div>
                     <h5 className="text-xl text-[#303030] font-bold">
-                      We&#39;ve Proud Past
+                      Quality Craftsmanship
                     </h5>
                     <p className="text-[#7C7C7C] text-[15px] py-3">
-                      Uemo enim ipsam laoreet quia voluptas sit aspernatur odit
-                      fugit ipsum.
+                      Crafting Excellence, Every Step of the Way
                     </p>
                   </div>
                 </div>
