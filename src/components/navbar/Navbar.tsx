@@ -73,7 +73,7 @@ export default function Navbar() {
                 </div>
               </Link>
 
-              <Link href="#">
+              <Link href="/contact">
                 <li className="ml-10 tracking-wider capitalize font-semibold hover:border-b hover:border-main-color hover:pb-2 text-md text-secColor hover:text-main-color duration-300 transition-all">
                   Contact Us
                 </li>

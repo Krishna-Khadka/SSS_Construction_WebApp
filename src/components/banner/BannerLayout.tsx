@@ -3,7 +3,11 @@ import React from "react";
 import serviceBanner from "../../../public/slider2.jpg";
 import Image from "next/image";
 
-const BannerLayout = () => {
+interface BannerProps {
+  title: string;
+}
+
+const BannerLayout = ({ title }: BannerProps) => {
   return (
     <>
       <div className="relative">
@@ -19,7 +23,7 @@ const BannerLayout = () => {
           <div className="container">
             <div>
               <h1 className="text-5xl font-bold text-white capitalize">
-                our services
+                {title}
               </h1>
               <div className="pt-3">
                 <nav aria-label="breadcrumb" className="w-max">
@@ -34,7 +38,7 @@ const BannerLayout = () => {
                     </li>
                     <li className="flex items-center leading-normal">
                       <p className="text-[17px] tracking-wider text-main-color font-semibold">
-                        Our Services
+                        {title}
                       </p>
                     </li>
                   </ol>

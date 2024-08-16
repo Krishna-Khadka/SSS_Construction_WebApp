@@ -6,7 +6,12 @@ import { FaPhone, FaEnvelope } from "react-icons/fa6";
 import { GrLocation } from "react-icons/gr";
 import post1 from "../../../public/counterBG.jpg";
 
-import { FaFacebookF, FaInstagram, FaTwitter, FaLinkedin } from "react-icons/fa6";
+import {
+  FaFacebookF,
+  FaInstagram,
+  FaTwitter,
+  FaLinkedin,
+} from "react-icons/fa6";
 
 export default function Footer() {
   return (

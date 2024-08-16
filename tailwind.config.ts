@@ -11,7 +11,7 @@ const config: Config = {
       colors: {
         "main-color": "#FF0000",
         "secondary-color": "#002060",
-        'primary-500': '#3b82f6',
+        "title-color": "#0E121D"
       },
       animation: {
         'bg-slide': 'bg-slide 0.5s ease-in-out forwards',

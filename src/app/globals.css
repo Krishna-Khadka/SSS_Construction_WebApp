@@ -128,3 +128,33 @@
     align-items: center;
     color: #fff;
 }
+
+.contact-icon {
+    font-size: 38px;
+    width: 70px;
+    height: 70px;
+    background-color: #FF0000;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    transition: transform 0.3s ease;
+}
+
+.contact-icon svg {
+    transition: transform 0.3s ease; 
+}
+
+@keyframes rotate-icon {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+li:hover .contact-icon svg {
+    animation: rotate-icon 0.6s linear;
+}
