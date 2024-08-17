@@ -10,10 +10,10 @@ import {
 } from "react-icons/fa6";
 
 interface SocialLinks {
-  facebook: string;
-  twitter: string;
-  instagram: string;
-  linkedin: string;
+  facebook?: string;
+  twitter?: string;
+  instagram?: string;
+  linkedin?: string;
 }
 
 interface TeamProps {
@@ -23,7 +23,12 @@ interface TeamProps {
   socialLinks: SocialLinks;
 }
 
-const TeamLayout = ({ imgSrc, name, designation, socialLinks }: TeamProps) => {
+const TeamLayout = ({
+  imgSrc,
+  name,
+  designation,
+  socialLinks = {},
+}: TeamProps) => {
   return (
     <div className="shadow-xl group">
       <div className="w-full h-[350px] overflow-hidden">
@@ -35,22 +40,22 @@ const TeamLayout = ({ imgSrc, name, designation, socialLinks }: TeamProps) => {
       </div>
       <div className="relative text-center py-8">
         <div className="absolute top-[-12px] left-1/2 transform -translate-x-1/2 flex justify-center items-center gap-4">
-          <Link href={socialLinks.facebook}>
+          <Link href={socialLinks.facebook || "#"}>
             <div className="team-social-icon">
               <FaFacebookF />
             </div>
           </Link>
-          <Link href={socialLinks.twitter}>
+          <Link href={socialLinks.twitter || "#"}>
             <div className="team-social-icon">
               <FaTwitter />
             </div>
           </Link>
-          <Link href={socialLinks.instagram}>
+          <Link href={socialLinks.instagram || "#"}>
             <div className="team-social-icon">
               <FaInstagram />
             </div>
           </Link>
-          <Link href={socialLinks.linkedin}>
+          <Link href={socialLinks.linkedin || "#"}>
             <div className="team-social-icon">
               <FaLinkedin />
             </div>
