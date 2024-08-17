@@ -3,8 +3,8 @@ import React from "react";
 const ProjectInfo = () => {
   return (
     <>
-      <div className="flex gap-4">
-        <div className="w-1/3">
+      <div className="flex flex-col md:flex-row gap-4">
+        <div className="w-full md:w-1/3">
           <div className="bg-[#1D1D25] text-white py-8 px-9">
             <h5 className="text-2xl font-bold tracking-wider mb-5">
               Project Information
@@ -41,7 +41,7 @@ const ProjectInfo = () => {
             </ul>
           </div>
         </div>
-        <div className="w-2/3">
+        <div className="w-full md:w-2/3">
           <h2 className="text-4xl font-bold text-main-color">
             Mountain Tunnel
           </h2>
