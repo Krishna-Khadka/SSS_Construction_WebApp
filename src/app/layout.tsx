@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import NextTopLoader from "nextjs-toploader";
 import TopNavbar from "@/components/navbar/TopNavbar";
 import Navbar from "@/components/navbar/Navbar";
 import Footer from "@/components/footer/Footer";
@@ -22,7 +23,10 @@ export default function RootLayout({
       <body className={inter.className}>
         <TopNavbar />
         <Navbar />
-        {children}
+        <main className="relative overflow-hidden">
+          <NextTopLoader color="#FF0000" height={5} />
+          {children}
+        </main>
         <Footer />
         </body>
     </html>

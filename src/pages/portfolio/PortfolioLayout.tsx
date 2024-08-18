@@ -7,9 +7,10 @@ interface PortfolioProps {
   imgSrc: StaticImageData;
   category: string;
   title: string;
+  portfolio_id: string;
 }
 
-const PortfolioLayout = ({ imgSrc, category, title }: PortfolioProps) => {
+const PortfolioLayout = ({ imgSrc, category, title, portfolio_id }: PortfolioProps) => {
   return (
     <div className="relative w-full h-[360px] overflow-hidden group">
       <Image
@@ -19,7 +20,7 @@ const PortfolioLayout = ({ imgSrc, category, title }: PortfolioProps) => {
       />
       <div className="absolute bottom-0 w-full bg-white opacity-0 group-hover:opacity-95 transition-all duration-700 p-4">
         <div className="project-link-icon absolute top-3 right-3">
-          <Link href="#">
+          <Link href={`./portfolio/project-detail/${portfolio_id}`} passHref>
             <MdKeyboardDoubleArrowRight className="text-white text-2xl" />
           </Link>
         </div>

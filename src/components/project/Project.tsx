@@ -4,40 +4,71 @@ import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 
+// import project1 from "../../../public/project1.jpg";
+// import project2 from "../../../public/project2.jpg";
+// import project3 from "../../../public/project3.jpg";
+// import project4 from "../../../public/project4.jpg";
+// import project5 from "../../../public/project5.jpg";
+
 import project1 from "../../../public/project1.jpg";
 import project2 from "../../../public/project2.jpg";
 import project3 from "../../../public/project3.jpg";
 import project4 from "../../../public/project4.jpg";
 import project5 from "../../../public/project5.jpg";
+import project6 from "../../../public/project6.jpg";
+import project7 from "../../../public/project7.jpg";
+import project8 from "../../../public/project8.jpg";
+import project9 from "../../../public/project9.jpg";
 
 import "swiper/css";
 import ProjectLayout from "./ProjectLayout";
+import PortfolioLayout from "@/pages/portfolio/PortfolioLayout";
 
-const projects = [
-  {
-    imgSrc: project1,
-    title: "Smith Construction",
-    category: "construction",
-  },
-  {
-    imgSrc: project2,
-    title: "Silicon Complex",
-    category: "construction",
-  },
-  {
-    imgSrc: project3,
-    title: "Marvel Complex",
-    category: "construction",
-  },
-  {
-    imgSrc: project4,
-    title: "Center Complex",
-    category: "construction",
-  },
+// const projects = [
+//   {
+//     imgSrc: project1,
+//     title: "Smith Construction",
+//     category: "construction",
+//   },
+//   {
+//     imgSrc: project2,
+//     title: "Silicon Complex",
+//     category: "construction",
+//   },
+//   {
+//     imgSrc: project3,
+//     title: "Marvel Complex",
+//     category: "construction",
+//   },
+//   {
+//     imgSrc: project4,
+//     title: "Center Complex",
+//     category: "construction",
+//   },
+//   {
+//     imgSrc: project5,
+//     title: "Glossy Building",
+//     category: "construction",
+//   },
+// ];
+
+const portfolios = [
+  { imgSrc: project1, category: "Engineering", title: "Building Construction" },
+  { imgSrc: project2, category: "Engineering", title: "Industrial Design" },
+  { imgSrc: project3, category: "Construction", title: "Architect Design" },
+  { imgSrc: project4, category: "Engineering", title: "Residential Design" },
   {
     imgSrc: project5,
-    title: "Glossy Building",
-    category: "construction",
+    category: "Construction",
+    title: "Building Construction",
+  },
+  { imgSrc: project6, category: "Construction", title: "Industrial Design" },
+  { imgSrc: project7, category: "Engineering", title: "Architect Design" },
+  { imgSrc: project8, category: "Construction", title: "Residential Design" },
+  {
+    imgSrc: project9,
+    category: "Construction",
+    title: "Building Construction",
   },
 ];
 
@@ -71,12 +102,12 @@ const Project = () => {
                   disableOnInteraction: false,
                 }}
               >
-                {projects.map((project, index) => (
+                {portfolios.map((portfolio, index) => (
                   <SwiperSlide key={index}>
-                    <ProjectLayout
-                      imgSrc={project.imgSrc}
-                      title={project.title}
-                      category={project.category}
+                    <PortfolioLayout
+                      imgSrc={portfolio.imgSrc}
+                      title={portfolio.title}
+                      category={portfolio.category}
                     />
                   </SwiperSlide>
                 ))}

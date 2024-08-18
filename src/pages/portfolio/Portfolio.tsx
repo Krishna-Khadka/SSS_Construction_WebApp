@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import React, { useState } from "react";
 import project1 from "../../../public/project1.jpg";
@@ -15,19 +15,56 @@ import PortfolioLayout from "./PortfolioLayout";
 type Tab = "All_Projects" | "Engineering" | "Construction";
 
 const portfolios = [
-  { imgSrc: project1, category: "Engineering", title: "Building Construction" },
-  { imgSrc: project2, category: "Engineering", title: "Industrial Design" },
-  { imgSrc: project3, category: "Construction", title: "Architect Design" },
-  { imgSrc: project4, category: "Engineering", title: "Residential Design" },
   {
+    portfolio_id: "1",
+    imgSrc: project1,
+    category: "Engineering",
+    title: "Building Construction",
+  },
+  {
+    portfolio_id: "2",
+    imgSrc: project2,
+    category: "Engineering",
+    title: "Industrial Design",
+  },
+  {
+    portfolio_id: "3",
+    imgSrc: project3,
+    category: "Construction",
+    title: "Architect Design",
+  },
+  {
+    portfolio_id: "4",
+    imgSrc: project4,
+    category: "Engineering",
+    title: "Residential Design",
+  },
+  {
+    portfolio_id: "5",
     imgSrc: project5,
     category: "Construction",
     title: "Building Construction",
   },
-  { imgSrc: project6, category: "Construction", title: "Industrial Design" },
-  { imgSrc: project7, category: "Engineering", title: "Architect Design" },
-  { imgSrc: project8, category: "Construction", title: "Residential Design" },
   {
+    portfolio_id: "6",
+    imgSrc: project6,
+    category: "Construction",
+    title: "Industrial Design",
+  },
+  {
+    portfolio_id: "7",
+    imgSrc: project7,
+    category: "Engineering",
+    title: "Architect Design",
+  },
+  {
+    portfolio_id: "8",
+    imgSrc: project8,
+    category: "Construction",
+    title: "Residential Design",
+  },
+  {
+    portfolio_id: "9",
     imgSrc: project9,
     category: "Construction",
     title: "Building Construction",
@@ -89,6 +126,7 @@ const PortfolioPage = () => {
           {filteredPortfolios.map((portfolio, index) => (
             <PortfolioLayout
               key={index}
+              portfolio_id={portfolio.portfolio_id}
               imgSrc={portfolio.imgSrc}
               category={portfolio.category}
               title={portfolio.title}
