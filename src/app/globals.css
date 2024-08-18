@@ -10,7 +10,7 @@
 }
 
 .hero-bg {
-    background: linear-gradient(#0008,#0009), url(../../public/slider1.jpg);
+    background: linear-gradient(#0008, #0009), url(../../public/slider1.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     height: 90dvh;
@@ -24,7 +24,7 @@
     background: linear-gradient(#000E, #000E), url(../../public/testimonial-bg.jpg);
     background-size: cover;
     background-repeat: no-repeat;
-    padding: 80px 0; 
+    padding: 80px 0;
 }
 
 .counter-bg {
@@ -149,14 +149,27 @@
     transition: transform 0.3s ease;
 }
 
+.project-link-icon {
+    font-size: 30px;
+    width: 45px;
+    height: 45px;
+    background-color: #FF0000;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+}
+
 .contact-icon svg {
-    transition: transform 0.3s ease; 
+    transition: transform 0.3s ease;
 }
 
 @keyframes rotate-icon {
     from {
         transform: rotate(0deg);
     }
+
     to {
         transform: rotate(360deg);
     }

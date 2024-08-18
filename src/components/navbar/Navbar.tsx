@@ -67,7 +67,7 @@ export default function Navbar() {
                 </div>
               </Link>
 
-              <Link href="#">
+              <Link href="/portfolio">
                 <div className="ml-10 tracking-wider capitalize font-semibold hover:border-b hover:border-main-color hover:pb-2 text-md text-secColor hover:text-main-color duration-300 transition-all">
                   Portfolio
                 </div>
@@ -137,7 +137,7 @@ export default function Navbar() {
               </li>
             </Link>
 
-            <Link href="#">
+            <Link href="/portfolio">
               <li
                 onClick={() => setMenuOpen(false)}
                 className="py-4 cursor-pointer text-xl uppercase border-b border-gray-500 mt-2 font-normal text-white"
