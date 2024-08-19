@@ -38,7 +38,7 @@ const BlogLayout = ({ imgSrc, author, date, title }: BlogProps) => {
               </p>
             </div>
           </div>
-          <h2 className="text-2xl font-semibold tracking-wide leading-[1.3] py-3 group-hover:text-main-color transition-all duration-500">
+          <h2 className="text-xl font-semibold tracking-wide leading-[1.3] py-3 group-hover:text-main-color transition-all duration-500">
             {title}
           </h2>
           <div className="inline-block py-4">

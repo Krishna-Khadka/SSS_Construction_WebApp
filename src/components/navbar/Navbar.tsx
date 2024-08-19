@@ -23,7 +23,6 @@ export default function Navbar() {
     setMenuOpen(!menuOpen);
   };
 
-
   useEffect(() => {
     if (menuOpen) {
       document.body.classList.add("overflow-hidden");
@@ -70,6 +69,12 @@ export default function Navbar() {
               <Link href="/portfolio">
                 <div className="ml-10 tracking-wider capitalize font-semibold hover:border-b hover:border-main-color hover:pb-2 text-md text-secColor hover:text-main-color duration-300 transition-all">
                   Portfolio
+                </div>
+              </Link>
+
+              <Link href="/career">
+                <div className="ml-10 tracking-wider capitalize font-semibold hover:border-b hover:border-main-color hover:pb-2 text-md text-secColor hover:text-main-color duration-300 transition-all">
+                  Career
                 </div>
               </Link>
 
@@ -149,6 +154,15 @@ export default function Navbar() {
                 className="py-4 cursor-pointer text-xl uppercase border-b border-gray-500 mt-2 font-normal text-white"
               >
                 Portfolio
+              </li>
+            </Link>
+
+            <Link href="/career">
+              <li
+                onClick={() => setMenuOpen(false)}
+                className="py-4 cursor-pointer text-xl uppercase border-b border-gray-500 mt-2 font-normal text-white"
+              >
+                Career
               </li>
             </Link>
 
