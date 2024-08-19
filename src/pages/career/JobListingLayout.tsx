@@ -11,7 +11,7 @@ interface JobListingLayoutProps {
   jobs: Job[];
 }
 
-const JobListingLayout = ({ jobs }: JobListingLayoutProps) => {
+const JobListingLayout = ({ jobs = [] }: JobListingLayoutProps) => {
   return (
     <div className="overflow-x-auto">
       <table className="min-w-full bg-white rounded-lg shadow-md">
