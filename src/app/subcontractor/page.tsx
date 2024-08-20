@@ -1,5 +1,6 @@
 import BannerLayout from "@/components/banner/BannerLayout";
-import SubContractorForm from "@/pages/subcontractor/SubContractorForm";
+// import SubContractorForm from "@/pages/subcontractor/SubContractorForm";
+import SubContractorLogin from "@/pages/subcontractor/SubContractorLogin";
 import React from "react";
 
 const page = () => {
@@ -9,7 +10,8 @@ const page = () => {
         <BannerLayout title="Sub Contractor" />
       </div>
       <div>
-        <SubContractorForm />
+        {/* <SubContractorForm /> */}
+        <SubContractorLogin />
       </div>
     </div>
   );

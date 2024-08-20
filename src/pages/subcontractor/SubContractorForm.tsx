@@ -1,6 +1,9 @@
 "use client";
 
+import Link from "next/link";
 import React, { useState, ChangeEvent } from "react";
+
+import { FaArrowRightLong } from "react-icons/fa6";
 
 const SubcontractorForm = () => {
   const [category, setCategory] = useState<string>("");
@@ -273,13 +276,21 @@ const SubcontractorForm = () => {
                   </label>
                 </div>
 
-                <div className="flex justify-center mt-6 md:col-span-3">
+                <div className="flex justify-start mt-6 md:col-span-3">
                   <button
                     type="submit"
                     className="bg-indigo-600 text-white font-bold py-3 px-6 rounded-md shadow hover:bg-indigo-700 transition duration-200"
                   >
                     Submit Registration
                   </button>
+                </div>
+
+                <div>
+                  <Link href="/subcontractor" className="text-main-color flex items-center gap-1">
+                    {" "}
+                    Already a Sub Contractor
+                    <FaArrowRightLong />
+                  </Link>
                 </div>
               </form>
             </div>
