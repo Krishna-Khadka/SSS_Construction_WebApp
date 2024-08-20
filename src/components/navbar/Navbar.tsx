@@ -89,6 +89,12 @@ export default function Navbar() {
                   Contact Us
                 </li>
               </Link>
+
+              <Link href="/subcontractor">
+                <li className="ml-10 tracking-wider capitalize font-semibold hover:border-b hover:border-main-color hover:pb-2 text-md text-secColor hover:text-main-color duration-300 transition-all">
+                  Sub Contractors
+                </li>
+              </Link>
             </ul>
           </div>
           <div onClick={handleNav} className="sm:hidden cursor-pointer pl-24">
@@ -181,6 +187,15 @@ export default function Navbar() {
                 className="py-4 cursor-pointer text-xl uppercase border-b border-gray-500 mt-2 font-normal text-white"
               >
                 Contact
+              </li>
+            </Link>
+
+            <Link href="/subcontractor">
+              <li
+                onClick={() => setMenuOpen(false)}
+                className="py-4 cursor-pointer text-xl uppercase border-b border-gray-500 mt-2 font-normal text-white"
+              >
+                Sub Contractors
               </li>
             </Link>
           </ul>
