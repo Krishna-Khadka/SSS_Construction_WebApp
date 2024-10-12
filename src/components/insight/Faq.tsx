@@ -3,29 +3,29 @@ import Accordion from "./Accordion";
 
 const items = [
   {
-    title: "What services does SSN Builders offer?",
+    title: "How do I become a subcontractor with SSN Builders Group?",
     content:
-      "We offer a wide range of construction services, including residential and commercial solutions, construction management, program management, and project consultation. We also specialize in new construction, remodeling, and various other services.",
+      "To become a subcontractor, create an account, provide business details, upload licenses, insurance certificates, and certifications. Once approved, you can apply for relevant projects.",
   },
   {
-    title: "Where does SSN Builders operate?",
+    title: "What areas can subcontractors work in with SSN Builders?",
     content:
-      "We serve the Triangle Area, including Raleigh, Cary, Chapel Hill, Durham, and surrounding suburbs in North Carolina.",
+      "Subcontractors can specialize in: General Construction, Engineering (Civil, Structural, Mechanical), Electrical, Plumbing, and HVAC Services"
   },
   {
-    title: "What is SSN Builders' approach to project management?",
+    title: "What is the process for project application?",
     content:
-      "We prioritize planning, scheduling, quality assurance, and collaboration with subcontractors to ensure timely and successful project completion.",
+      "After approval, subcontractors can log in to view available projects, submit bids, and track progress directly through the Subcontractor Portal.",
   },
   {
-    title: "Why choose SSN Builders?",
+    title: "What certifications are required to work with SSN Builders?",
     content:
-      "We are committed to precision, tailored solutions, timely delivery, and guaranteed customer satisfaction.",
+      "Subcontractors are required to provide business licenses, insurance policies, and industry-relevant certifications, such as OSHA or LEED certifications, depending on the project.",
   },
   {
-    title: "How can I request a quote from SSN Builders?",
+    title: "Can subcontractors work remotely?",
     content:
-      "You can request a quote directly through our website by selecting the type of service you need and providing relevant project details.",
+      "Depending on the project and the nature of the work, certain tasks such as consulting, design, and engineering work can be performed remotely while maintaining consistent communication with the project team.",
   },
 ];
 

@@ -7,6 +7,7 @@ import { useRouter } from "next/navigation";
 import subcontractor from "../../../public/subcontractor.jpg";
 import Link from "next/link";
 import { FaArrowRightLong } from "react-icons/fa6";
+import ContractorFaq from "./ContractorFaq";
 
 const SubContractorLogin = () => {
   const router = useRouter();
@@ -21,9 +22,9 @@ const SubContractorLogin = () => {
         values.email === "demo@contractor.com" &&
         values.password === "demo12345"
       ) {
-        const id = "12345";
+        // const id = "12345";
         // Redirect to the subcontractor page with the ID in the URL
-        router.push(`/subcontractor/subcontractor-info/${id}`);
+        router.push(`/contractor`);
       } else {
         alert("Invalid email or password");
       }
@@ -35,22 +36,14 @@ const SubContractorLogin = () => {
       <div className="py-20">
         <div className="container">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 shadow-lg">
-            <div className="hidden md:block">
-              <div className="w-full h-[400px]">
-                <Image
-                  src={subcontractor}
-                  alt="Sub Contractor Image"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            </div>
+            <ContractorFaq />
             <div className="login-div flex items-center justify-center p-8 bg-white">
               <div className="w-full max-w-md">
                 <h2 className="text-4xl font-bold text-center">
                   Subcontractor <br />
                   <span className="text-main-color">Login Form</span>
                 </h2>
-                <div className="mt-4">
+                <div className="mt-6">
                   <form onSubmit={formik.handleSubmit}>
                     <div className="mb-4">
                       <label
