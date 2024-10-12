@@ -75,6 +75,7 @@ const OpenProjectInfo = () => {
             <Modal
               isOpen={isModalOpen}
               onRequestClose={closeModal}
+              ariaHideApp={false}
               contentLabel="Submit a Bid Modal"
               className="bg-white p-6 rounded-lg shadow-lg max-w-md mx-auto mt-20"
               overlayClassName="fixed inset-0 bg-gray-600 bg-opacity-50 flex justify-center items-center"
@@ -113,7 +114,7 @@ const OpenProjectInfo = () => {
                         type="number"
                         name="bidAmount"
                         className="mt-1 block w-full border border-gray-300 p-2 rounded-md"
-                        placeholder="Enter Bid Amount"
+                        placeholder="Enter Bid Amount in $"
                       />
                     </div>
                     <button

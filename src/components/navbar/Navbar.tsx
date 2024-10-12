@@ -90,7 +90,7 @@ export default function Navbar() {
                 </li>
               </Link>
 
-              <Link href="/subcontractor">
+              <Link href="/contractor">
                 <li className="ml-10 tracking-wider capitalize font-semibold hover:border-b hover:border-main-color hover:pb-2 text-md text-secColor hover:text-main-color duration-300 transition-all">
                   Sub Contractors
                 </li>
