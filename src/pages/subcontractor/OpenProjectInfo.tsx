@@ -108,13 +108,13 @@ const OpenProjectInfo = () => {
                     </div>
                     <div className="mb-4">
                       <label className="block text-sm font-medium text-gray-700">
-                        Bid Amount
+                        Bid Amount($)
                       </label>
                       <Field
                         type="number"
                         name="bidAmount"
                         className="mt-1 block w-full border border-gray-300 p-2 rounded-md"
-                        placeholder="Enter Bid Amount in $"
+                        placeholder="Enter Bid Amount"
                       />
                     </div>
                     <button
