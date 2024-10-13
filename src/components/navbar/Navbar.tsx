@@ -190,7 +190,7 @@ export default function Navbar() {
               </li>
             </Link>
 
-            <Link href="/subcontractor">
+            <Link href="/contractor">
               <li
                 onClick={() => setMenuOpen(false)}
                 className="py-4 cursor-pointer text-xl uppercase border-b border-gray-500 mt-2 font-normal text-white"
