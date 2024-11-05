@@ -1,7 +1,10 @@
 "use client";
 
 import Image from "next/image";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
+import { useRouter } from "next/navigation";
+// import { AuthContext } from "@/providers/AuthProvider";
+import { UseAuth } from "@/app/context/UseAuth";
 import Logo from "../../../public/logo.png";
 import Link from "next/link";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
@@ -17,10 +20,41 @@ import {
 } from "react-icons/fa6";
 
 export default function Navbar() {
+  const router = useRouter();
+  const { user, setUser } = UseAuth();
   const [menuOpen, setMenuOpen] = useState(false);
 
   const handleNav = () => {
     setMenuOpen(!menuOpen);
+  };
+
+  // const checkAuthStatus = () => {
+  //   const token = localStorage.getItem("authToken");
+  //   setIsAuthenticated(!!token);
+  // };
+
+  // useEffect(() => {
+  //   // Check auth status initially on mount
+  //   checkAuthStatus();
+
+  //   // Add event listener for storage changes
+  //   const handleStorageChange = (event) => {
+  //     if (event.key === "authToken") {
+  //       checkAuthStatus(); // Recheck auth status if authToken changes
+  //     }
+  //   };
+  //   window.addEventListener("storage", handleStorageChange);
+
+  //   return () => {
+  //     window.removeEventListener("storage", handleStorageChange);
+  //   };
+  // }, []);
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+    setUser(null);
+    // Optionally, redirect to home
   };
 
   useEffect(() => {
@@ -84,7 +118,7 @@ export default function Navbar() {
                 </div>
               </Link>
 
-              <Link href="/contact">
+              {/* <Link href="/contact">
                 <li className="ml-10 tracking-wider capitalize font-semibold hover:border-b hover:border-main-color hover:pb-2 text-md text-secColor hover:text-main-color duration-300 transition-all">
                   Contact Us
                 </li>
@@ -95,6 +129,40 @@ export default function Navbar() {
                   Sub Contractors
                 </li>
               </Link>
+              <Link href={user ? "#" : "/login"}>
+                <li
+                  onClick={user ? handleLogout : undefined}
+                  className="ml-10 tracking-wider capitalize font-semibold hover:border-b hover:border-main-color hover:pb-2 text-md text-secColor hover:text-main-color duration-300 transition-all"
+                >
+                  {user ? "Logout" : "Login"}
+                </li>
+              </Link> */}
+
+              {/* Conditionally render Sub Contractors link only if user is logged in */}
+              {/* Login/Logout/Contractor Button */}
+              {user ? (
+                <>
+                  <li
+                    onClick={handleLogout}
+                    className="ml-10 tracking-wider capitalize font-semibold hover:border-b hover:border-main-color hover:pb-2 text-md text-secColor hover:text-main-color duration-300 transition-all cursor-pointer"
+                  >
+                    Logout
+                  </li>
+                  <li
+                    onClick={() => router.push("/contractor")}
+                    className="ml-10 tracking-wider capitalize font-semibold hover:border-b hover:border-main-color hover:pb-2 text-md text-secColor hover:text-main-color duration-300 transition-all cursor-pointer"
+                  >
+                    Contractor
+                  </li>
+                </>
+              ) : (
+                <li
+                  onClick={() => router.push("/login")}
+                  className="ml-10 tracking-wider capitalize font-semibold hover:border-b hover:border-main-color hover:pb-2 text-md text-secColor hover:text-main-color duration-300 transition-all cursor-pointer"
+                >
+                  Login
+                </li>
+              )}
             </ul>
           </div>
           <div onClick={handleNav} className="sm:hidden cursor-pointer pl-24">
@@ -190,7 +258,7 @@ export default function Navbar() {
               </li>
             </Link>
 
-            <Link href="/contractor">
+            {/* <Link href="/contractor">
               <li
                 onClick={() => setMenuOpen(false)}
                 className="py-4 cursor-pointer text-xl uppercase border-b border-gray-500 mt-2 font-normal text-white"
@@ -198,6 +266,40 @@ export default function Navbar() {
                 Sub Contractors
               </li>
             </Link>
+            <Link href={user ? "#" : "/login"}>
+              <li
+                onClick={user ? handleLogout : undefined}
+                className="ml-10 tracking-wider capitalize font-semibold hover:border-b hover:border-main-color hover:pb-2 text-md text-secColor hover:text-main-color duration-300 transition-all"
+              >
+                {user ? "Logout" : "Login"}
+              </li>
+            </Link> */}
+
+            {/* Conditionally render Sub Contractors link only if user is logged in */}
+            {/* Login/Logout/Contractor Button */}
+            {user ? (
+              <>
+                <li
+                  onClick={handleLogout}
+                  className="ml-10 tracking-wider capitalize font-semibold hover:border-b hover:border-main-color hover:pb-2 text-md text-secColor hover:text-main-color duration-300 transition-all cursor-pointer"
+                >
+                  Logout
+                </li>
+                <li
+                  onClick={() => router.push("/contractor")}
+                  className="ml-10 tracking-wider capitalize font-semibold hover:border-b hover:border-main-color hover:pb-2 text-md text-secColor hover:text-main-color duration-300 transition-all cursor-pointer"
+                >
+                  Contractor
+                </li>
+              </>
+            ) : (
+              <li
+                onClick={() => router.push("/login")}
+                className="ml-10 tracking-wider capitalize font-semibold hover:border-b hover:border-main-color hover:pb-2 text-md text-secColor hover:text-main-color duration-300 transition-all cursor-pointer"
+              >
+                Login
+              </li>
+            )}
           </ul>
         </div>
 

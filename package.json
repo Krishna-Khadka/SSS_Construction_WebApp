@@ -19,7 +19,8 @@
     "react-modal": "^3.16.1",
     "sharp": "^0.33.4",
     "swiper": "^11.1.9",
-    "yet-another-react-lightbox": "^3.21.3"
+    "yet-another-react-lightbox": "^3.21.3",
+    "yup": "^1.4.0"
   },
   "devDependencies": {
     "@types/node": "^20",

@@ -1,7 +1,5 @@
 "use client";
 
-import React from "react";
-
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -37,6 +35,7 @@ const Contents = [
     imgSrc: slider3,
   },
 ];
+
 
 const Hero = () => {
   return (
