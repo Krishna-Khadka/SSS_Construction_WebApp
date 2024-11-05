@@ -4,7 +4,7 @@ import Image from "next/image";
 import React, { useEffect, useState, useContext } from "react";
 import { useRouter } from "next/navigation";
 // import { AuthContext } from "@/providers/AuthProvider";
-import { useAuth } from "../../app/context/useAuth";
+import { useAuth } from "../../app/context/UseAuth";
 import Logo from "../../../public/logo.png";
 import Link from "next/link";
 
@@ -19,6 +19,7 @@ import {
   FaTwitter,
   FaLinkedin,
 } from "react-icons/fa6";
+
 
 
 

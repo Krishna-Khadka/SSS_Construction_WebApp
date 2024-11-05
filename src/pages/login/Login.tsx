@@ -5,7 +5,7 @@ import * as Yup from "yup";
 import { useState } from "react";
 import { useRouter } from "next/navigation"; // Import useRouter for navigation
 import api from "../../../service/api.service.js"; // Import the API instance
-import { useAuth } from "../../app/context/useAuth";
+import { useAuth } from "../../app/context/UseAuth";
 
 
 interface LoginFormValues {
