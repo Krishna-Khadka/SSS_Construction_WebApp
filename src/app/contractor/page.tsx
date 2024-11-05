@@ -8,7 +8,7 @@ import SubContractorInfo from '@/pages/subcontractor/SubContractorInfo'
 import Loader from "@/components/loader/Loader";
 
 
-const page = () => {
+const Page = () => {
   const { user } = useContext(AuthContext); // Get the current user context
   const router = useRouter();
 
@@ -27,4 +27,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page
