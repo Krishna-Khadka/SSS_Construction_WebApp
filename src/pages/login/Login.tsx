@@ -5,7 +5,7 @@ import * as Yup from "yup";
 import { useState } from "react";
 import { useRouter } from "next/navigation"; // Import useRouter for navigation
 import api from "../../../service/api.service.js"; // Import the API instance
-import { UseAuth } from "@/app/context/UseAuth";
+import { useAuth } from "@/app/context/useAuth";
 
 
 interface LoginFormValues {
@@ -15,7 +15,7 @@ interface LoginFormValues {
 
 const Login = () => {
   const router = useRouter();
-  const { setUser } = UseAuth();
+  const { setUser } = useAuth();
   const [error, setError] = useState<string | null>(null);
 
   // Validation schema for Formik

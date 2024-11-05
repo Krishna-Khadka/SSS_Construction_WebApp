@@ -4,9 +4,10 @@ import Image from "next/image";
 import React, { useEffect, useState, useContext } from "react";
 import { useRouter } from "next/navigation";
 // import { AuthContext } from "@/providers/AuthProvider";
-import { UseAuth } from "@/app/context/UseAuth";
+import { useAuth } from "@/app/context/useAuth";
 import Logo from "../../../public/logo.png";
 import Link from "next/link";
+
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 
 import {
@@ -19,9 +20,11 @@ import {
   FaLinkedin,
 } from "react-icons/fa6";
 
+
+
 export default function Navbar() {
   const router = useRouter();
-  const { user, setUser } = UseAuth();
+  const { user, setUser } = useAuth();
   const [menuOpen, setMenuOpen] = useState(false);
 
   const handleNav = () => {
