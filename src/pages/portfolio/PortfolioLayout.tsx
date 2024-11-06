@@ -4,7 +4,7 @@ import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 
 interface PortfolioProps {
-  imgSrc: StaticImageData;
+  imgSrc: string;
   category: string;
   title: string;
   portfolio_id: string;

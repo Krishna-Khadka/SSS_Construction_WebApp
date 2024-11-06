@@ -1,5 +1,8 @@
+"use client"
+
 import ProjectDetail from "@/pages/project-detail/ProjectDetail";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 
 interface Params {
   params: {
@@ -9,12 +12,33 @@ interface Params {
 
 const PortfolioDetailPage = ({ params }: Params) => {
   const { id } = params;
+  const [project, setProject] = useState(null);
+
+  useEffect(() => {
+    const fetchProjectData = async () => {
+      try {
+        const response = await axios.get(
+          `https://ssnbuilders.ujwalkoirala.com.np/api/projects/id/${id}`
+        );
+        setProject(response.data);
+        console.log(response.data);
+      } catch (error) {
+        console.error("Failed to fetch project data:", error);
+      }
+    };
+    fetchProjectData();
+  }, [id]);
 
   return (
     <div>
       {/* <h1>Portfolio Detail Page</h1> */}
       {/* <p>Displaying details for portfolio ID: {id}</p> */}
-      <ProjectDetail />
+      {/* <ProjectDetail /> */}
+      {project ? (
+        <ProjectDetail project={project} />
+      ) : (
+        <p>Loading project details...</p>
+      )}
     </div>
   );
 };

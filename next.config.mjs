@@ -2,7 +2,7 @@
 const nextConfig = {
     reactStrictMode: false,
     images: {
-        domains: ['https://ssnbuilders.ujwalkoirala.com.np/'],
+        domains: ['ssnbuilders.ujwalkoirala.com.np'],
       },
 };
 

@@ -1,11 +1,11 @@
-"use client"
+"use client";
 
 import "./Newsletter.css";
 import Image from "next/image";
 import mail from "../../../public/send-mail.png";
 import { useState } from "react";
 import { Formik, Form, Field } from "formik";
-import axios from "axios";
+import api from "../../../service/api.service";
 
 // Define type for form values
 interface FormValues {
@@ -22,10 +22,7 @@ export default function Newsletter() {
     { resetForm }: { resetForm: () => void }
   ) => {
     try {
-      const response = await axios.post(
-        "https://ssnbuilders.ujwalkoirala.com.np/api/subscribe",
-        values
-      );
+      const response = await api.post("/subscribe", values);
       setAlertMessage(response.data[1]);
       setAlertType("success");
       resetForm();
