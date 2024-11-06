@@ -3,7 +3,7 @@ import React from "react";
 
 interface ServiceCardProps {
   title: string;
-  listItems?: string[];
+  description: string;
   imgSrc: StaticImageData;
   count: string;
 }
@@ -11,7 +11,7 @@ interface ServiceCardProps {
 const ServiceCardLayout: React.FC<ServiceCardProps> = ({
   imgSrc,
   title,
-  listItems = [],
+  description,
   count,
 }) => {
   return (
@@ -31,11 +31,12 @@ const ServiceCardLayout: React.FC<ServiceCardProps> = ({
             {title}
           </h3>
           <ul className="mt-4 space-y-2 text-[#64656a] text-base font-normal list-none group-hover:text-gray-300">
-            {(listItems || []).map((item, index) => (
+            {/* {(listItems || []).map((item, index) => (
               <li key={index} className="flex items-center list-none">
                 {item}
               </li>
-            ))}
+            ))} */}
+            <li>{description}</li>
           </ul>
         </div>
       </div>
