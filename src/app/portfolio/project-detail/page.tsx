@@ -1,10 +1,10 @@
-import ProjectDetail from '@/pages/project-detail/ProjectDetail'
+// import ProjectDetail from '@/pages/project-detail/ProjectDetail'
 import React from 'react'
 
 const page = () => {
   return (
     <div>
-        <ProjectDetail />
+        {/* <ProjectDetail /> */}
     </div>
   )
 }
