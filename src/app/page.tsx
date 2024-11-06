@@ -4,6 +4,7 @@ import Hero from "@/components/hero/Hero";
 import HomeAbout from "@/components/homeAbout/HomeAbout";
 import Insight from "@/components/insight/Insight";
 import MottoCard from "@/components/mottoCard/MottoCard";
+import Newsletter from "@/components/newsletter/Newsletter";
 import Project from "@/components/project/Project";
 import Testimonial from "@/components/testimonial/Testimonial";
 
@@ -50,6 +51,9 @@ export default function Home() {
       </div>
       <div>
         <Testimonial />
+      </div>
+      <div>
+        <Newsletter/>
       </div>
     </>
   );
