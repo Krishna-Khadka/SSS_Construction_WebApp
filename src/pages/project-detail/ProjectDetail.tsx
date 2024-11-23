@@ -13,7 +13,15 @@ interface Project {
   status: string;
 }
 
-const ProjectDetail = ({project}: { project: Project }) => {
+const ProjectDetail = ({project}: { project: Project | null }) => {
+
+  if (!project) {
+    return (
+      <div className="container">
+        <p>Project details are not available.</p>
+      </div>
+    );
+  }
   return (
     <>
       <div className="container">
@@ -34,7 +42,7 @@ const ProjectDetail = ({project}: { project: Project }) => {
                   </li>
                   <li className="text-sm border-b border-b-gray-600 mb-4 pb-3">
                     <strong className="inline-flex w-20">Location:</strong>
-                    <span>{project.location}</span>
+                    <span>{project.location || "N/A"}</span>
                   </li>
                   <li className="text-sm border-b border-b-gray-600 mb-4 pb-3">
                     <strong className="inline-flex w-20">Area(sf):</strong>
