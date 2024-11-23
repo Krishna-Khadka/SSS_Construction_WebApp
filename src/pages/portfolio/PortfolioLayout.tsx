@@ -4,13 +4,18 @@ import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 
 interface PortfolioProps {
-  imgSrc: string;
+  imgSrc: string | StaticImageData;
   category: string;
   title: string;
   portfolio_id: string;
 }
 
-const PortfolioLayout = ({ imgSrc, category, title, portfolio_id }: PortfolioProps) => {
+const PortfolioLayout = ({
+  imgSrc,
+  category,
+  title,
+  portfolio_id,
+}: PortfolioProps) => {
   return (
     <div className="relative w-full h-[360px] overflow-hidden group">
       <Image

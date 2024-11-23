@@ -1,9 +1,11 @@
+"use client"
+
 import React from "react";
-
+import api from "../../../service/api.service";
 import { FaArrowRightLong } from "react-icons/fa6";
-
 import contactImage from "../../../public/contact-form-img.jpg";
 import Image from "next/image";
+import { Formik, Form, Field } from "formik";
 
 const ContactForm = () => {
   return (
@@ -16,109 +18,130 @@ const ContactForm = () => {
                 our services
               </h5>
               <h2 className="capitalize text-4xl font-extrabold text-[#0E121D] tracking-wider">
-                Have An Upcoming Projects? <br /> Let’s Talk to Now!
+                Have An Upcoming Projects? <br /> Lets Talk Now!
               </h2>
             </div>
-            <form className="w-full max-w-lg">
-              <div className="flex flex-wrap -mx-3 mb-6">
-                <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                  <label
-                    className="block uppercase tracking-wide text-gray-700 text-[15px] font-medium mb-2"
-                    htmlFor="grid-first-name"
-                  >
-                    Your Name
-                  </label>
-                  <input
-                    className="appearance-none block w-full text-gray-700 border border-gray-300 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                    id="grid-first-name"
-                    type="text"
-                    placeholder="Your Full Name"
-                  />
-                </div>
-                <div className="w-full md:w-1/2 px-3">
-                  <label
-                    className="block uppercase tracking-wide text-gray-700 text-[15px] font-medium mb-2"
-                    htmlFor="grid-last-name"
-                  >
-                    Email Address
-                  </label>
-                  <input
-                    className="appearance-none block w-full text-gray-700 border border-gray-300 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                    id="grid-last-name"
-                    type="email"
-                    placeholder="Your Email Address"
-                  />
-                </div>
-              </div>
-              <div className="flex flex-wrap -mx-3 mb-6">
-                <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                  <label
-                    className="block uppercase tracking-wide text-gray-700 text-[15px] font-medium mb-2"
-                    htmlFor="grid-first-name"
-                  >
-                    Phone Number
-                  </label>
-                  <input
-                    className="appearance-none block w-full text-gray-700 border border-gray-300 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                    id="grid-first-name"
-                    type="text"
-                    placeholder="Your Phone Number"
-                  />
-                </div>
-                <div className="w-full md:w-1/2 px-3">
-                  <label
-                    className="block uppercase tracking-wide text-gray-700 text-[15px] font-medium mb-2"
-                    htmlFor="grid-last-name"
-                  >
-                    Select Subjects
-                  </label>
-                  <div className="relative">
-                    <select
-                      className="block appearance-none w-full border border-gray-300 bg-white text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                      id="grid-state"
-                    >
-                      <option>Select Subjects</option>
-                      <option>Construction</option>
-                      <option>Real Estate</option>
-                      <option>Industry</option>
-                      <option>Architect</option>
-                    </select>
-                    <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                      <svg
-                        className="fill-current h-4 w-4"
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 20 20"
+
+            <Formik
+              initialValues={{
+                name: "",
+                email: "",
+                phone: "",
+                subject: "",
+                message: "",
+              }}
+              onSubmit={async (values, { setSubmitting, resetForm }) => {
+                try {
+                  const response = await api.post("/create/contact", values, {
+                    headers: {
+                      "Content-Type": "application/json",
+                    },
+                  });
+                  console.log("API Response:", response);
+                  console.log("Response of Enquiry:", response.data);
+                  resetForm();
+                } catch (error) {
+                  console.error("Error Submitting Form:", error);
+                }
+                setSubmitting(false);
+              }}
+            >
+              {({ isSubmitting }) => (
+                <Form className="w-full max-w-lg">
+                  <div className="flex flex-wrap -mx-3 mb-6">
+                    <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                      <label
+                        className="block uppercase tracking-wide text-gray-700 text-[15px] font-medium mb-2"
+                        htmlFor="name"
                       >
-                        <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
-                      </svg>
+                        Your Name
+                      </label>
+                      <Field
+                        className="appearance-none block w-full text-gray-700 border border-gray-300 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                        id="name"
+                        name="name"
+                        type="text"
+                        placeholder="Your Full Name"
+                      />
+                    </div>
+                    <div className="w-full md:w-1/2 px-3">
+                      <label
+                        className="block uppercase tracking-wide text-gray-700 text-[15px] font-medium mb-2"
+                        htmlFor="email"
+                      >
+                        Email Address
+                      </label>
+                      <Field
+                        className="appearance-none block w-full text-gray-700 border border-gray-300 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                        id="email"
+                        name="email"
+                        type="email"
+                        placeholder="Your Email Address"
+                      />
                     </div>
                   </div>
-                </div>
-              </div>
-              <div className="flex flex-wrap -mx-3 mb-6">
-                <div className="w-full px-3">
-                  <label
-                    className="block uppercase tracking-wide text-gray-700 text-[15px] font-medium mb-2"
-                    htmlFor="grid-message"
+                  <div className="flex flex-wrap -mx-3 mb-6">
+                    <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                      <label
+                        className="block uppercase tracking-wide text-gray-700 text-[15px] font-medium mb-2"
+                        htmlFor="phone"
+                      >
+                        Phone Number
+                      </label>
+                      <Field
+                        className="appearance-none block w-full text-gray-700 border border-gray-300 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                        id="phone"
+                        name="phone"
+                        type="text"
+                        placeholder="Your Phone Number"
+                      />
+                    </div>
+                    <div className="w-full md:w-1/2 px-3">
+                      <label
+                        className="block uppercase tracking-wide text-gray-700 text-[15px] font-medium mb-2"
+                        htmlFor="subject"
+                      >
+                        Subject
+                      </label>
+                      <Field
+                        className="appearance-none block w-full text-gray-700 border border-gray-300 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                        id="subject"
+                        name="subject"
+                        type="text"
+                        placeholder="Your Subject"
+                      />
+                    </div>
+                  </div>
+                  <div className="flex flex-wrap -mx-3 mb-6">
+                    <div className="w-full px-3">
+                      <label
+                        className="block uppercase tracking-wide text-gray-700 text-[15px] font-medium mb-2"
+                        htmlFor="message"
+                      >
+                        Message
+                      </label>
+                      <Field
+                        as="textarea"
+                        className="appearance-none block w-full text-gray-700 border border-gray-300 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                        id="message"
+                        name="message"
+                        rows={8}
+                        placeholder="Your message here..."
+                      />
+                    </div>
+                  </div>
+                  <button
+                    type="submit"
+                    aria-label="Submit enquiry"
+                    className="border-2 bg-main-color text-white font-semibold uppercase tracking-wider text-base px-10 py-4 rounded-md flex items-center gap-2 transition-all duration-500 hover:bg-secondary-color"
+                    disabled={isSubmitting}
                   >
-                    Message
-                  </label>
-                  <textarea
-                    className="appearance-none block w-full text-gray-700 border border-gray-300 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                    id="grid-message"
-                    rows={8}
-                    placeholder="Your message here..."
-                  ></textarea>
-                </div>
-              </div>
-              <button
-                  aria-label="Read more about this section"
-                  className="border-2 bg-main-color text-white font-semibold uppercase tracking-wider text-base px-10 py-4 rounded-md flex items-center gap-2 transition-all duration-500 hover:bg-secondary-color"
-                >
-                  read more
-                  <FaArrowRightLong />
-                </button>
-            </form>
+                    submit enquiry
+                    <FaArrowRightLong />
+                  </button>
+                </Form>
+              )}
+            </Formik>
           </div>
           <div>
             <Image

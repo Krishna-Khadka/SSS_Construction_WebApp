@@ -3,7 +3,7 @@ import React from "react";
 import Link from "next/link";
 
 interface ProjectsInfo {
-  imgSrc: StaticImageData;
+  imgSrc: string | StaticImageData;
   title: string;
   category: string;
 }
@@ -15,7 +15,7 @@ const ProjectLayout = ({ imgSrc, title, category }: ProjectsInfo) => {
         <Image
           src={imgSrc}
           alt="project image"
-          className="max-w-full object-cover h-[450px] rounded-[18px]"
+          className="max-w-full object-cover h-[450px] w-auto rounded-[18px]"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-black/60 rounded-[18px] opacity-100 group-hover:opacity-0 transition-opacity duration-500"></div>
         <div className="absolute z-40 bg-white rounded-[12px] px-4 py-6 bottom-1 w-[95%] left-1/2 transform -translate-x-1/2 text-center">

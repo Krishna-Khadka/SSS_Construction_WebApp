@@ -9,12 +9,12 @@ import { MdKeyboardDoubleArrowRight } from "react-icons/md";
 // import project5 from "../../../public/project5.jpg";
 // import project6 from "../../../public/project6.jpg";
 // import project7 from "../../../public/project7.jpg";
-// import project8 from "../../../public/project8.jpg";
+import project8 from "../../../public/project8.jpg";
 // import project9 from "../../../public/project9.jpg";
 // import PortfolioLayout from "./PortfolioLayout";
 
 import axios from "axios";
-import Image from "next/image";
+import Image, {StaticImageData} from "next/image";
 import Link from "next/link";
 
 type Tab = "All_Projects" | "Engineering" | "Construction" | string;
@@ -37,63 +37,6 @@ interface ApiResponseProject {
   };
 }
 
-// const portfolios = [
-//   {
-//     portfolio_id: "1",
-//     imgSrc: project1,
-//     category: "Engineering",
-//     title: "Building Construction",
-//   },
-//   {
-//     portfolio_id: "2",
-//     imgSrc: project2,
-//     category: "Engineering",
-//     title: "Industrial Design",
-//   },
-//   {
-//     portfolio_id: "3",
-//     imgSrc: project3,
-//     category: "Construction",
-//     title: "Architect Design",
-//   },
-//   {
-//     portfolio_id: "4",
-//     imgSrc: project4,
-//     category: "Engineering",
-//     title: "Residential Design",
-//   },
-//   {
-//     portfolio_id: "5",
-//     imgSrc: project5,
-//     category: "Construction",
-//     title: "Building Construction",
-//   },
-//   {
-//     portfolio_id: "6",
-//     imgSrc: project6,
-//     category: "Construction",
-//     title: "Industrial Design",
-//   },
-//   {
-//     portfolio_id: "7",
-//     imgSrc: project7,
-//     category: "Engineering",
-//     title: "Architect Design",
-//   },
-//   {
-//     portfolio_id: "8",
-//     imgSrc: project8,
-//     category: "Construction",
-//     title: "Residential Design",
-//   },
-//   {
-//     portfolio_id: "9",
-//     imgSrc: project9,
-//     category: "Construction",
-//     title: "Building Construction",
-//   },
-// ];
-
 const PortfolioPage = () => {
   const [activeTab, setActiveTab] = useState<Tab>("All_Projects");
   const [projects, setProjects] = useState<Project[]>([]);
@@ -112,6 +55,8 @@ const PortfolioPage = () => {
           "https://ssnbuilders.ujwalkoirala.com.np/api/projects"
         );
         const data = response.data;
+        console.log(data);
+        
 
         // Extract categories dynamically from the project data
         const uniqueCategories = Array.from(
@@ -206,7 +151,8 @@ const PortfolioPage = () => {
             <div key={index} className="relative w-full h-[360px] overflow-hidden group">
               <Image
                 // src={project.fullPath || "/project8.jpg"}
-                src={project.fullPath ? project.fullPath : "/project8.jpg"}
+                // src={project.fullPath ? project.fullPath : project8}
+                src={project8}
                 alt={project.name}
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-125"
                 width={500}
