@@ -19,9 +19,7 @@ import {
   FaTwitter,
   FaLinkedin,
 } from "react-icons/fa6";
-
-
-
+import { MdArrowForwardIos } from "react-icons/md";
 
 export default function Navbar() {
   const router = useRouter();
@@ -110,17 +108,24 @@ export default function Navbar() {
                 </div>
               </Link>
 
-              <Link href="/career">
-                <div className="ml-10 tracking-wider capitalize font-semibold hover:border-b hover:border-main-color hover:pb-2 text-md text-secColor hover:text-main-color duration-300 transition-all">
-                  Career
+              <div className="relative group">
+                <li className="flex items-center ml-10 tracking-wider capitalize font-semibold hover:border-b hover:border-mainColor hover:pb-2 text-md text-secColor hover:text-mainColor duration-300 transition-all">
+                  <span>Resources</span>
+                  <MdArrowForwardIos className="ml-2 transform rotate-90 group-hover:rotate-0 transition-transform duration-300" />
+                </li>
+                <div className="absolute z-[90] left-0 w-48 bg-white border rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-opacity duration-300">
+                  <Link href="/career">
+                    <div className="px-4 py-2 tracking-wider capitalize font-semibold hover:border-b hover:border-main-color hover:pb-2 text-md text-secColor hover:text-main-color duration-300 transition-all">
+                      Career
+                    </div>
+                  </Link>
+                  <Link href="/blog">
+                    <div className="px-4 py-2 tracking-wider capitalize font-semibold hover:border-b hover:border-main-color hover:pb-2 text-md text-secColor hover:text-main-color duration-300 transition-all">
+                      Blog
+                    </div>
+                  </Link>
                 </div>
-              </Link>
-
-              <Link href="/blog">
-                <div className="ml-10 tracking-wider capitalize font-semibold hover:border-b hover:border-main-color hover:pb-2 text-md text-secColor hover:text-main-color duration-300 transition-all">
-                  Blog
-                </div>
-              </Link>
+              </div>
 
               {/* <Link href="/contact">
                 <li className="ml-10 tracking-wider capitalize font-semibold hover:border-b hover:border-main-color hover:pb-2 text-md text-secColor hover:text-main-color duration-300 transition-all">
