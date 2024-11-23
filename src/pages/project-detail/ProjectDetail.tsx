@@ -6,7 +6,7 @@ import ProjectGallery from "./ProjectGallery";
 interface Project {
   id: number;
   name: string;
-  client_information?: string;
+  // client_information?: string;
   location?: string;
   description: string;
   start_date: string;
@@ -30,7 +30,7 @@ const ProjectDetail = ({project}: { project: Project }) => {
                 <ul>
                   <li className="text-sm border-b border-b-gray-600 mb-4 pb-3">
                     <strong className="inline-flex w-20">Client:</strong>
-                    <span>{project.client_information || "N/A"}</span>
+                    {/* <span>{project.client_information || "N/A"}</span> */}
                   </li>
                   <li className="text-sm border-b border-b-gray-600 mb-4 pb-3">
                     <strong className="inline-flex w-20">Location:</strong>
