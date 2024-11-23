@@ -34,7 +34,7 @@ const ProjectDetail = ({project}: { project: Project }) => {
                   </li>
                   <li className="text-sm border-b border-b-gray-600 mb-4 pb-3">
                     <strong className="inline-flex w-20">Location:</strong>
-                    <span>{project.location || "N/A"}</span>
+                    <span>{project.location}</span>
                   </li>
                   <li className="text-sm border-b border-b-gray-600 mb-4 pb-3">
                     <strong className="inline-flex w-20">Area(sf):</strong>
