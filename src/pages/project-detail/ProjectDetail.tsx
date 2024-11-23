@@ -7,7 +7,7 @@ interface Project {
   id: number;
   name: string;
   // client_information?: string;
-  location?: string;
+  location: string;
   description: string;
   start_date: string;
   status: string;
