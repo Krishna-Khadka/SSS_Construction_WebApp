@@ -136,7 +136,7 @@ const Login = () => {
         </Formik>
         {/* Register Link */}
         <p className="flex items-center gap-3 mt-4 text-center text-sm text-gray-600">
-          Don't have an account?
+          Don&apos;t have an account?
           <Link href="/register">
             <span className="text-blue-600 hover:underline">Register</span>
           </Link>
