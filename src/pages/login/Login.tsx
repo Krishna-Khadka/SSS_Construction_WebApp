@@ -6,7 +6,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation"; // Import useRouter for navigation
 import api from "../../../service/api.service.js"; // Import the API instance
 import { useAuth } from "../../app/context/UseAuth";
-
+import Link from "next/link.js";
 
 interface LoginFormValues {
   email: string;
@@ -50,7 +50,6 @@ const Login = () => {
         console.log("Login successful:", response.data);
         // window.location.reload();
         router.push("/"); // Redirect to homepage on success
-
       } else {
         setError(response.data.message || "Login failed");
       }
@@ -135,6 +134,13 @@ const Login = () => {
             </Form>
           )}
         </Formik>
+        {/* Register Link */}
+        <p className="flex items-center gap-3 mt-4 text-center text-sm text-gray-600">
+          Don't have an account?
+          <Link href="/register">
+            <span className="text-blue-600 hover:underline">Register</span>
+          </Link>
+        </p>
       </div>
     </div>
   );

@@ -4,16 +4,74 @@ import Link from "next/link";
 import React, { useState } from "react";
 import Modal from "react-modal";
 import { Formik, Form, Field } from "formik";
+import axios from "axios";
+
+interface FormValues {
+  project_id: number;
+  subcontractor_id: number;
+  proposal: string;
+  total_bid_amount: string;
+  breakdown_of_costs: string;
+  payment_terms: string;
+  warranties: string;
+  signature: string;
+  date_of_signing: string;
+  attachments: string[];
+  status: string;
+}
 
 const OpenProjectInfo = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  // Function to open the modal
-  const openModal = () => setIsModalOpen(true);
+  const initialValues: FormValues = {
+    project_id: 12,
+    subcontractor_id: 1,
+    proposal: "",
+    total_bid_amount: "",
+    breakdown_of_costs: "",
+    payment_terms: "",
+    warranties: "",
+    signature: "",
+    date_of_signing: "",
+    attachments: [],
+    status: "submitted",
+  };
 
-  // Function to close the modal
-  const closeModal = () => {
-    setIsModalOpen(false);
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
+
+  const submitProposal = async (values: any, setSubmitting: any) => {
+    try {
+      const formData = new FormData();
+
+      // Append the form fields
+      for (const key in values) {
+        if (values[key]) {
+          if (Array.isArray(values[key])) {
+            values[key].forEach((file) => formData.append(key, file));
+          } else {
+            formData.append(key, values[key]);
+          }
+        }
+      }
+
+      const response = await axios.post(
+        "https://ssnbuilders.ujwalkoirala.com.np/api/proposal/submit",
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
+      console.log("Response:", response.data);
+      closeModal();
+    } catch (error) {
+      console.error("Error submitting proposal:", error);
+      // Handle error (e.g., show an error message)
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -82,55 +140,148 @@ const OpenProjectInfo = () => {
             >
               <h2 className="text-xl font-semibold mb-4">Submit a Bid</h2>
 
-              {/* Form inside the modal using Formik */}
               <Formik
-                initialValues={{ name: "", bidAmount: "" }}
+                initialValues={initialValues}
                 onSubmit={(values, { setSubmitting }) => {
-                  // Handle form submission
                   console.log("Submitted values:", values);
-                  // Close modal after submission
+                  submitProposal(values, setSubmitting);
                   closeModal();
                   setSubmitting(false);
                 }}
               >
-                {({ isSubmitting }) => (
+                {({ isSubmitting, setFieldValue }) => (
                   <Form>
-                    <div className="mb-4">
-                      <label className="block text-sm font-medium text-gray-700">
-                        Name
-                      </label>
-                      <Field
-                        type="text"
-                        name="name"
-                        className="mt-1 block w-full border border-gray-300 p-2 rounded-md"
-                        placeholder="Your Name"
-                      />
+                    {/* Two-column Grid */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      {/* Proposal */}
+                      <div className="col-span-1 md:col-span-2">
+                        <label className="block text-sm font-medium text-gray-700">
+                          Proposal
+                        </label>
+                        <Field
+                          as="textarea"
+                          name="proposal"
+                          className="mt-1 block w-full border border-gray-300 p-2 rounded-md"
+                          placeholder="Describe your proposal"
+                        />
+                      </div>
+
+                      {/* Total Bid Amount */}
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700">
+                          Total Bid Amount ($)
+                        </label>
+                        <Field
+                          type="number"
+                          name="total_bid_amount"
+                          className="mt-1 block w-full border border-gray-300 p-2 rounded-md"
+                          placeholder="Enter total bid amount"
+                        />
+                      </div>
+
+                      {/* Breakdown of Costs */}
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700">
+                          Breakdown of Costs
+                        </label>
+                        <Field
+                          as="textarea"
+                          name="breakdown_of_costs"
+                          className="mt-1 block w-full border border-gray-300 p-2 rounded-md"
+                          placeholder="e.g., material: 20000, labour: 4000, etc."
+                        />
+                      </div>
+
+                      {/* Payment Terms */}
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700">
+                          Payment Terms
+                        </label>
+                        <Field
+                          as="textarea"
+                          name="payment_terms"
+                          className="mt-1 block w-full border border-gray-300 p-2 rounded-md"
+                          placeholder="Describe payment terms"
+                        />
+                      </div>
+
+                      {/* Warranties */}
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700">
+                          Warranties
+                        </label>
+                        <Field
+                          as="textarea"
+                          name="warranties"
+                          className="mt-1 block w-full border border-gray-300 p-2 rounded-md"
+                          placeholder="Describe warranties"
+                        />
+                      </div>
+
+                      {/* Signature */}
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700">
+                          Signature
+                        </label>
+                        <Field
+                          type="text"
+                          name="signature"
+                          className="mt-1 block w-full border border-gray-300 p-2 rounded-md"
+                          placeholder="Enter your name as signature"
+                        />
+                      </div>
+
+                      {/* Date of Signing */}
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700">
+                          Date of Signing
+                        </label>
+                        <Field
+                          type="date"
+                          name="date_of_signing"
+                          className="mt-1 block w-full border border-gray-300 p-2 rounded-md"
+                        />
+                      </div>
+
+                      {/* Attachments */}
+                      <div className="col-span-1 md:col-span-2">
+                        <label className="block text-sm font-medium text-gray-700">
+                          Attachments
+                        </label>
+                        <input
+                          type="file"
+                          multiple
+                          className="mt-1 block w-full"
+                          onChange={(event) => {
+                            const files = Array.from(
+                              event.currentTarget.files || []
+                            );
+                            setFieldValue(
+                              "attachments",
+                              files.map((file) => file.name)
+                            );
+                          }}
+                        />
+                      </div>
                     </div>
-                    <div className="mb-4">
-                      <label className="block text-sm font-medium text-gray-700">
-                        Bid Amount($)
-                      </label>
-                      <Field
-                        type="number"
-                        name="bidAmount"
-                        className="mt-1 block w-full border border-gray-300 p-2 rounded-md"
-                        placeholder="Enter Bid Amount"
-                      />
+
+                    {/* Buttons */}
+                    <div className="mt-4 flex justify-end gap-4">
+                      <button
+                        type="submit"
+                        className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition-all"
+                        disabled={isSubmitting}
+                      >
+                        Submit
+                      </button>
+                      <button
+                        type="button"
+                        onClick={closeModal}
+                        className="bg-gray-300 text-black py-2 px-4 rounded-md hover:bg-gray-400 transition-all"
+                      >
+                        Cancel
+                      </button>
                     </div>
-                    <button
-                      type="submit"
-                      className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition-all"
-                      disabled={isSubmitting}
-                    >
-                      Submit
-                    </button>
-                    <button
-                      type="button"
-                      onClick={closeModal}
-                      className="ml-4 bg-gray-300 text-black py-2 px-4 rounded-md hover:bg-gray-400 transition-all"
-                    >
-                      Cancel
-                    </button>
                   </Form>
                 )}
               </Formik>
@@ -141,24 +292,7 @@ const OpenProjectInfo = () => {
               Lorem ipsum dolor sit amet, consectetur adipisicing elit.
               Voluptatem veritatis quo et ullam, ducimus itaque earum dolorem?
               Consectetur, et, aut. A, corporis officia eius dicta explicabo
-              saepe nesciunt, mollitia minima, atque maiores optio cum. Atque
-              amet unde impedit voluptate cumque distinctio minima, aspernatur
-              nemo! Expedita in, numquam blanditiis ullam rem!
-            </p>
-            <p className="text-[#1D1D1D] leading-[1.7] mt-4">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi cum
-              fugit officia dolores eligendi, rem. Quibusdam quasi impedit
-              perspiciatis iure maiores, eaque numquam doloremque, quo nam
-              soluta itaque obcaecati tempore!.
-            </p>
-            <p className="text-[#1D1D1D] leading-[1.7] mt-4">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore
-              ex, nam adipisci dolores laborum earum. Unde cum, ut nostrum nihil
-              alias, laudantium molestiae, vitae quidem dolorem officiis ipsum.
-              Aliquid nemo consequuntur cupiditate delectus sapiente doloribus
-              dolorem, at suscipit, non laudantium mollitia magnam repellat
-              atque quia! Aut, veniam, nam. Ex porro optio facilis nostrum, qui
-              ipsa?
+              saepe nesciunt fugit quas!
             </p>
           </div>
         </div>

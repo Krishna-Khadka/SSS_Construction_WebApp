@@ -5,6 +5,7 @@ import * as Yup from "yup";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import api from "../../../service/api.service.js"; // Import the API instance
+import Link from "next/link.js";
 
 interface RegisterFormValues {
   name: string;
@@ -152,6 +153,14 @@ const Register = () => {
             </Form>
           )}
         </Formik>
+
+        {/* Register Link */}
+        <p className="flex items-center gap-3 mt-4 text-center text-sm text-gray-600">
+          Already have an account?
+          <Link href="/login">
+            <span className="text-blue-600 hover:underline">Login</span>
+          </Link>
+        </p>
       </div>
     </div>
   );
