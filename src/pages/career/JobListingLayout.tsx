@@ -74,6 +74,11 @@ const JobListingLayout: React.FC<JobListingLayoutProps> = ({ jobs }) => {
     }
   };
 
+  if (!Array.isArray(jobs)) {
+    console.error("Invalid jobs data:", jobs);
+    return <div>No jobs available.</div>;
+  }
+
   return (
     <div className="overflow-x-auto">
       <table className="min-w-full bg-white rounded-lg shadow-md">
