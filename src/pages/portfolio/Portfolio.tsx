@@ -2,16 +2,8 @@
 
 import React, { useState, useEffect } from "react";
 import { MdKeyboardDoubleArrowRight } from "react-icons/md";
-// import project1 from "../../../public/project1.jpg";
-// import project2 from "../../../public/project2.jpg";
-// import project3 from "../../../public/project3.jpg";
-// import project4 from "../../../public/project4.jpg";
-// import project5 from "../../../public/project5.jpg";
-// import project6 from "../../../public/project6.jpg";
-// import project7 from "../../../public/project7.jpg";
+
 import project8 from "../../../public/project8.jpg";
-// import project9 from "../../../public/project9.jpg";
-// import PortfolioLayout from "./PortfolioLayout";
 
 import axios from "axios";
 import Image, {StaticImageData} from "next/image";
@@ -56,6 +48,10 @@ const PortfolioPage = () => {
         );
         const data = response.data;
         console.log(data);
+
+        const completedProjects = data.filter(
+          (project: any) => project.status === "completed"
+        );
         
 
         // Extract categories dynamically from the project data
@@ -129,19 +125,6 @@ const PortfolioPage = () => {
           </ul>
         </nav>
       </div>
-      {/* <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6">
-          {filteredPortfolios.map((portfolio, index) => (
-            <PortfolioLayout
-              key={index}
-              portfolio_id={portfolio.portfolio_id}
-              imgSrc={portfolio.imgSrc}
-              category={portfolio.category}
-              title={portfolio.title}
-            />
-          ))}
-        </div>
-      </div> */}
       {loading ? (
         <div>Loading...</div>
       ) : (

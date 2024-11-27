@@ -1,4 +1,4 @@
-"use client";
+"use client"
 
 import Link from "next/link";
 import React, { useState } from "react";
@@ -24,8 +24,8 @@ const OpenProjectInfo = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const initialValues: FormValues = {
-    project_id: 12,
-    subcontractor_id: 1,
+    project_id: 25,
+    subcontractor_id: 3,
     proposal: "",
     total_bid_amount: "",
     breakdown_of_costs: "",
@@ -42,28 +42,11 @@ const OpenProjectInfo = () => {
 
   const submitProposal = async (values: any, setSubmitting: any) => {
     try {
-      const formData = new FormData();
-
-      // Append the form fields
-      for (const key in values) {
-        if (values[key]) {
-          if (Array.isArray(values[key])) {
-            values[key].forEach((file) => formData.append(key, file));
-          } else {
-            formData.append(key, values[key]);
-          }
-        }
-      }
-
       const response = await axios.post(
         "https://ssnbuilders.ujwalkoirala.com.np/api/proposal/submit",
-        formData,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        }
+        values
       );
+      // Handle the response, e.g., show a success message or redirect
       console.log("Response:", response.data);
       closeModal();
     } catch (error) {
