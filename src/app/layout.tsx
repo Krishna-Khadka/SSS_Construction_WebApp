@@ -33,7 +33,6 @@
 //   );
 // }
 
-
 // RootLayout.tsx
 
 // app/layout.tsx
@@ -45,6 +44,7 @@ import TopNavbar from "@/components/navbar/TopNavbar";
 import Navbar from "@/components/navbar/Navbar";
 import Footer from "@/components/footer/Footer";
 import { AuthProvider } from "@/providers/AuthProvider";
+import { SiteProfileProvider } from "@/context/SiteProfileContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -62,16 +62,17 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <AuthProvider>
-          <TopNavbar />
-          <Navbar />
-          <main className="relative overflow-hidden">
-            <NextTopLoader color="#FF0000" height={5} />
-            {children}
-          </main>
-          <Footer />
+          <SiteProfileProvider>
+            <TopNavbar />
+            <Navbar />
+            <main className="relative overflow-hidden">
+              <NextTopLoader color="#FF0000" height={5} />
+              {children}
+            </main>
+            <Footer />
+          </SiteProfileProvider>
         </AuthProvider>
       </body>
     </html>
   );
 }
-

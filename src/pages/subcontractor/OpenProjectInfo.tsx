@@ -6,6 +6,16 @@ import Modal from "react-modal";
 import { Formik, Form, Field } from "formik";
 import axios from "axios";
 
+interface Project {
+  id: number;
+  name: string;
+  // client_information?: string;
+  location: string;
+  description: string;
+  start_date: string;
+  status: string;
+}
+
 interface FormValues {
   project_id: number;
   subcontractor_id: number;
@@ -20,8 +30,16 @@ interface FormValues {
   status: string;
 }
 
-const OpenProjectInfo = () => {
+const OpenProjectInfo = ({project}: { project: Project | null }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  if (!project) {
+    return (
+      <div className="container">
+        <p>Project details are not available.</p>
+      </div>
+    );
+  }
 
   const initialValues: FormValues = {
     project_id: 25,
@@ -72,15 +90,16 @@ const OpenProjectInfo = () => {
               </li>
               <li className="text-sm border-b border-b-gray-600 mb-4 pb-3">
                 <strong className="inline-flex w-20">Location:</strong>
-                <span> San Francisco</span>
+                {/* <span> San Francisco</span> */}
+                <span>{project.location || "N/A"}</span>
               </li>
               <li className="text-sm border-b border-b-gray-600 mb-4 pb-3">
                 <strong className="inline-flex w-20">Area(sf):</strong>
                 <span> 550,000 sf</span>
               </li>
               <li className="text-sm border-b border-b-gray-600 mb-4 pb-3">
-                <strong className="inline-flex w-20">Year:</strong>
-                <span>2019</span>
+                {/* <strong className="inline-flex w-20">Year:</strong> */}
+                <span>{new Date(project.start_date).getFullYear()}</span>
               </li>
               <li className="text-sm border-b border-b-gray-600 mb-4 pb-3">
                 <strong className="inline-flex w-20">Budget:</strong>
@@ -100,7 +119,8 @@ const OpenProjectInfo = () => {
         <div className="w-full md:w-2/3">
           <div className="flex items-center gap-6">
             <h2 className="text-4xl font-bold text-main-color">
-              Mountain Tunnel
+              {/* Mountain Tunnel */}
+              {project.name}
             </h2>
             <Link
               href="#"
@@ -271,12 +291,13 @@ const OpenProjectInfo = () => {
             </Modal>
           </div>
           <div>
-            <p className="text-[#1D1D1D] leading-[1.7] mt-4">
+          {project.description}
+            {/* <p className="text-[#1D1D1D] leading-[1.7] mt-4">
               Lorem ipsum dolor sit amet, consectetur adipisicing elit.
               Voluptatem veritatis quo et ullam, ducimus itaque earum dolorem?
               Consectetur, et, aut. A, corporis officia eius dicta explicabo
               saepe nesciunt fugit quas!
-            </p>
+            </p> */}
           </div>
         </div>
       </div>

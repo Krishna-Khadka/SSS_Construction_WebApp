@@ -1,12 +1,14 @@
 "use client";
 
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import React, { useState, ChangeEvent } from "react";
 import { Formik, useFormikContext, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
 
 import { FaArrowRightLong } from "react-icons/fa6";
+
 
 interface FormValues {
   company_name: string;
@@ -28,36 +30,81 @@ interface FormValues {
 }
 
 const SubcontractorForm = () => {
-  const [category, setCategory] = useState<string>("");
+  const router = useRouter();
+  const initialValues: FormValues = {
+    company_name: "",
+    company_address: "",
+    city: "",
+    country: "",
+    zip_postal_code: "",
+    website: "",
+    contact_person_name: "",
+    contact_person_email: "",
+    contact_person_phone: "",
+    business_license_number: "",
+    insurance_provider: "",
+    insurance_policy_number: "",
+    business_license_file: null,
+    insurance_certificate_file: null,
+    certifications_file: null,
+    agreement_to_terms: false,
+  };
 
   // Validation schema
   const validationSchema = Yup.object().shape({
     company_name: Yup.string().required("Company Name is required"),
-    // business_license_file: Yup.mixed().required(
-    //   "Business License File is required"
-    // ),
-    // insurance_certificate_file: Yup.mixed().required(
-    //   "Insurance Certificate File is required"
-    // ),
-    // certifications_file: Yup.mixed().required(
-    //   "Certifications File is required"
-    // ),
-    // agreement_to_terms: Yup.boolean()
-    //   .oneOf([true], "You must agree to the terms")
-    //   .required("Agreement is required"),
+    company_address: Yup.string().required("Company address is required"),
+    city: Yup.string().required("City is required"),
+    country: Yup.string().required("Country is required"),
+    zip_postal_code: Yup.string().required("ZIP/Postal code is required"),
+    website: Yup.string()
+      .url("Enter a valid URL")
+      .required("Website is required"),
+    contact_person_name: Yup.string().required(
+      "Contact person name is required"
+    ),
+    contact_person_email: Yup.string()
+      .email("Invalid email address")
+      .required("Contact person email is required"),
+    contact_person_phone: Yup.string().required(
+      "Contact person phone is required"
+    ),
+    business_license_number: Yup.string().required(
+      "Business license number is required"
+    ),
+    insurance_provider: Yup.string().required("Insurance provider is required"),
+    insurance_policy_number: Yup.string().required(
+      "Insurance policy number is required"
+    ),
+    business_license_file: Yup.mixed().required(
+      "Business License File is required"
+    ),
+    insurance_certificate_file: Yup.mixed().required(
+      "Insurance Certificate File is required"
+    ),
+    certifications_file: Yup.mixed().required(
+      "Certifications File is required"
+    ),
+    agreement_to_terms: Yup.boolean()
+      .oneOf([true], "You must agree to the terms")
+      .required("Agreement is required"),
   });
 
-  const handleFileChange = (
-    event: ChangeEvent<HTMLInputElement>,
-    setFieldValue: (field: string, value: File | null) => void
-  ) => {
-    const { name, files } = event.target;
-    setFieldValue(name, files && files[0] ? files[0] : null);
-  };
-
-  // Form submit handler
   const handleSubmit = async (values: FormValues) => {
     const formData = new FormData();
+
+    // Add user_id from local storage
+    const storedUser = localStorage.getItem("user");
+    const user = storedUser ? JSON.parse(storedUser) : null;
+    const userId = user?.id;
+
+    if (!userId) {
+      alert("User ID is missing. Please log in again.");
+      return;
+    }
+
+    // Append all form fields
+    formData.append("user_id", userId);
     formData.append("company_name", values.company_name);
     formData.append("company_address", values.company_address);
     formData.append("city", values.city);
@@ -71,7 +118,7 @@ const SubcontractorForm = () => {
     formData.append("insurance_provider", values.insurance_provider);
     formData.append("insurance_policy_number", values.insurance_policy_number);
 
-    // Append file fields conditionally
+    // Append file fields if present
     if (values.business_license_file) {
       formData.append("business_license_file", values.business_license_file);
     }
@@ -85,9 +132,10 @@ const SubcontractorForm = () => {
       formData.append("certifications_file", values.certifications_file);
     }
 
+    // Append agreement_to_terms field
     formData.append(
       "agreement_to_terms",
-      values.agreement_to_terms ? "true" : "false"
+      values.agreement_to_terms ? "1" : "0"
     );
 
     try {
@@ -96,17 +144,18 @@ const SubcontractorForm = () => {
         formData,
         { headers: { "Content-Type": "multipart/form-data" } }
       );
+
+      // Add subcontractor_id to localStorage
+      const subcontractorId = response.data.contractor.id;
+      localStorage.setItem("subcontractor_id", subcontractorId);
+
       alert("Form submitted successfully!");
       console.log(response.data);
-      
+      router.push('/contractor')
     } catch (error) {
       console.error("Error submitting form:", error);
       alert("Form submission failed.");
     }
-  };
-
-  const handleCategoryChange = (event: ChangeEvent<HTMLSelectElement>) => {
-    setCategory(event.target.value);
   };
 
   return (
@@ -120,28 +169,11 @@ const SubcontractorForm = () => {
             </h2>
             <div className="pt-16">
               <Formik
-                initialValues={{
-                  company_name: "",
-                  company_address: "",
-                  city: "",
-                  country: "",
-                  zip_postal_code: "",
-                  website: "",
-                  contact_person_name: "",
-                  contact_person_email: "",
-                  contact_person_phone: "",
-                  business_license_number: "",
-                  insurance_provider: "",
-                  insurance_policy_number: "",
-                  business_license_file: null,
-                  insurance_certificate_file: null,
-                  certifications_file: null,
-                  agreement_to_terms: false,
-                }}
+                initialValues={initialValues}
                 validationSchema={validationSchema}
                 onSubmit={handleSubmit}
               >
-                {({ values, setFieldValue }) => (
+                {({ setFieldValue }) => (
                   <Form className="w-full grid gap-6 grid-cols-1 md:grid-cols-3">
                     {/* Company Information */}
                     <div className="md:col-span-3 grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -353,9 +385,17 @@ const SubcontractorForm = () => {
                         <input
                           type="file"
                           name="business_license_file"
-                          onChange={(event) =>
-                            handleFileChange(event, setFieldValue)
-                          }
+                          onChange={(event) => {
+                            if (
+                              event.target.files &&
+                              event.target.files.length > 0
+                            ) {
+                              setFieldValue(
+                                "business_license_file",
+                                event.target.files[0]
+                              );
+                            }
+                          }}
                           className="form-input"
                         />
                         <ErrorMessage
@@ -371,9 +411,17 @@ const SubcontractorForm = () => {
                         <input
                           type="file"
                           name="insurance_certificate_file"
-                          onChange={(event) =>
-                            handleFileChange(event, setFieldValue)
-                          }
+                          onChange={(event) => {
+                            if (
+                              event.target.files &&
+                              event.target.files.length > 0
+                            ) {
+                              setFieldValue(
+                                "insurance_certificate_file",
+                                event.target.files[0]
+                              );
+                            }
+                          }}
                           className="form-input"
                         />
                         <ErrorMessage
@@ -389,9 +437,17 @@ const SubcontractorForm = () => {
                         <input
                           type="file"
                           name="certifications_file"
-                          onChange={(event) =>
-                            handleFileChange(event, setFieldValue)
-                          }
+                          onChange={(event) => {
+                            if (
+                              event.target.files &&
+                              event.target.files.length > 0
+                            ) {
+                              setFieldValue(
+                                "certifications_file",
+                                event.target.files[0]
+                              );
+                            }
+                          }}
                           className="form-input"
                         />
                         <ErrorMessage
@@ -402,99 +458,17 @@ const SubcontractorForm = () => {
                       </div>
                     </div>
 
-                    {/* <div className="md:col-span-3">
-                  <label className="block uppercase tracking-wide text-gray-700 text-[15px] font-medium mb-2">
-                    Project Scope
-                  </label>
-                  <div className="flex gap-4 mb-4">
-                    <select
-                      className="form-select block w-full text-gray-700 border border-gray-400 rounded py-3 px-4 leading-tight focus:outline-none focus:border-gray-500"
-                      value={category}
-                      onChange={handleCategoryChange}
-                    >
-                      <option value="">Select Category</option>
-                      <option value="construction">Construction</option>
-                      <option value="engineering">Engineering</option>
-                    </select>
-                  </div>
-                  <div
-                    className={`grid grid-cols-1 ${
-                      category === "construction"
-                        ? "md:grid-cols-3"
-                        : category === "engineering"
-                        ? "md:grid-cols-3"
-                        : ""
-                    } gap-4`}
-                  >
-                    {category === "construction" && (
-                      <>
-                        <label className="inline-flex items-center">
-                          <input
-                            type="checkbox"
-                            className="form-checkbox text-indigo-600"
-                          />
-                          <span className="ml-2">Residential Construction</span>
-                        </label>
-
-                        <label className="inline-flex items-center">
-                          <input
-                            type="checkbox"
-                            className="form-checkbox text-indigo-600"
-                          />
-                          <span className="ml-2">Commercial Construction</span>
-                        </label>
-                        <label className="inline-flex items-center">
-                          <input
-                            type="checkbox"
-                            className="form-checkbox text-indigo-600"
-                          />
-                          <span className="ml-2">
-                            Infrastructure Development
-                          </span>
-                        </label>
-                      </>
-                    )}
-
-                    {category === "engineering" && (
-                      <>
-                        <label className="inline-flex items-center">
-                          <input
-                            type="checkbox"
-                            className="form-checkbox text-indigo-600"
-                          />
-                          <span className="ml-2">Structural Engineering</span>
-                        </label>
-                        <label className="inline-flex items-center">
-                          <input
-                            type="checkbox"
-                            className="form-checkbox text-indigo-600"
-                          />
-                          <span className="ml-2">Electrical Engineering</span>
-                        </label>
-                        <label className="inline-flex items-center">
-                          <input
-                            type="checkbox"
-                            className="form-checkbox text-indigo-600"
-                          />
-                          <span className="ml-2">Civil Engineering</span>
-                        </label>
-                      </>
-                    )}
-                  </div>
-                </div> */}
-
                     <div className="md:col-span-3">
                       <label className="inline-flex items-center">
                         <Field
                           type="checkbox"
                           name="agreement_to_terms"
-                          checked={values.agreement_to_terms} // Bind checked to formik value
                           onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                             setFieldValue(
                               "agreement_to_terms",
                               e.target.checked
                             )
-                          } // Explicitly set the value
+                          }
                         />
                         <span className="ml-2">
                           I agree to the terms and conditions

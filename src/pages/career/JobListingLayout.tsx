@@ -121,7 +121,7 @@ const JobListingLayout: React.FC<JobListingLayoutProps> = ({ jobs }) => {
       </table>
 
       {/* Modal for job details */}
-      {selectedJob && (
+      {/* {selectedJob && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
           <div className="bg-white rounded-lg shadow-lg p-8 w-11/12 max-w-lg">
             <h3 className="text-2xl font-bold mb-4">{selectedJob.title}</h3>
@@ -145,7 +145,62 @@ const JobListingLayout: React.FC<JobListingLayoutProps> = ({ jobs }) => {
             </button>
           </div>
         </div>
-      )}
+      )} */}
+
+{selectedJob && (
+  <div
+    className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50"
+    role="dialog"
+    aria-labelledby="modal-title"
+    aria-describedby="modal-description"
+  >
+    <div className="relative bg-white rounded-lg shadow-2xl p-6 w-11/12 max-w-xl transform transition-transform duration-300 scale-100">
+      {/* Close Button */}
+      <button
+        onClick={closeModal}
+        aria-label="Close modal"
+        className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition duration-200"
+      >
+        ✕
+      </button>
+
+      {/* Modal Title */}
+      <h3
+        id="modal-title"
+        className="text-2xl font-semibold text-gray-800 border-b border-gray-200 pb-4 mb-4"
+      >
+        {selectedJob.title}
+      </h3>
+
+      {/* Modal Content */}
+      <div id="modal-description" className="space-y-4">
+        <p className="text-gray-700">
+          <strong>Category:</strong> {selectedJob.job_category}
+        </p>
+        <p className="text-gray-700">
+          <strong>Location:</strong> {selectedJob.location}
+        </p>
+        <p className="text-gray-700">
+          <strong>Type:</strong> {selectedJob.job_type}
+        </p>
+        <p className="text-gray-700">
+          <strong>Description:</strong> {selectedJob.description}
+        </p>
+      </div>
+
+      {/* Footer with Buttons */}
+      <div className="mt-6 flex justify-end space-x-3">
+        <button
+          onClick={closeModal}
+          className="py-2 px-4 bg-red-600 text-white rounded-lg transition-all duration-200"
+        >
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+)}
+
 
       {/* Modal for job application */}
       {applyingJob && (

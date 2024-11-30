@@ -46,9 +46,6 @@ export default function Home() {
       <div>
         <Project />
       </div>
-      <div className="py-20">
-        <Insight />
-      </div>
       <div>
         <Testimonial />
       </div>

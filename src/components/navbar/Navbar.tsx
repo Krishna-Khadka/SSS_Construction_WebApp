@@ -55,6 +55,7 @@ export default function Navbar() {
   const handleLogout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
+    localStorage.removeItem("subcontractor_id");
     setUser(null);
     // Optionally, redirect to home
   };
@@ -172,6 +173,11 @@ export default function Navbar() {
                   Login
                 </li>
               )}
+              <Link href="/contact">
+                <div className="ml-10 tracking-wider capitalize font-semibold hover:border-b hover:border-main-color hover:pb-2 text-md text-secColor hover:text-main-color duration-300 transition-all">
+                  Contact
+                </div>
+              </Link>
             </ul>
           </div>
           <div onClick={handleNav} className="sm:hidden cursor-pointer pl-24">
@@ -309,6 +315,14 @@ export default function Navbar() {
                 Login
               </li>
             )}
+            <Link href="/contact">
+              <li
+                onClick={() => setMenuOpen(false)}
+                className="py-4 cursor-pointer text-xl uppercase border-b border-gray-500 mt-2 font-normal text-white"
+              >
+                Contact
+              </li>
+            </Link>
           </ul>
         </div>
 

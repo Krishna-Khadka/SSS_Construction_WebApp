@@ -3,7 +3,7 @@ import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 
 interface ContractorProjectProps {
-  imgSrc: StaticImageData;
+  imgSrc: StaticImageData | string;
   category: string;
   title: string;
   portfolio_id: string;
