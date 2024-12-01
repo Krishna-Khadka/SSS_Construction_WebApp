@@ -8,6 +8,7 @@ import * as Yup from "yup";
 import axios from "axios";
 
 import { FaArrowRightLong } from "react-icons/fa6";
+import api from "../../../service/api.service";
 
 
 interface FormValues {
@@ -139,8 +140,8 @@ const SubcontractorForm = () => {
     );
 
     try {
-      const response = await axios.post(
-        "https://ssnbuilders.ujwalkoirala.com.np/api/register/subcontractor",
+      const response = await api.post(
+        "/register/subcontractor",
         formData,
         { headers: { "Content-Type": "multipart/form-data" } }
       );

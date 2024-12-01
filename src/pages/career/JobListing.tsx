@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from "react";
 import JobListingLayout from "./JobListingLayout";
 import axios from "axios";
+import api from "../../../service/api.service";
 
 const JobListing = () => {
   const [jobs, setJobs] = useState([]);
@@ -11,8 +12,8 @@ const JobListing = () => {
   useEffect(() => {
     const fetchJobs = async () => {
       try {
-        const response = await axios.get(
-          "https://ssnbuilders.ujwalkoirala.com.np/api/careers"
+        const response = await api.get(
+          "/careers"
         );
         setJobs(response.data);
       } catch (error) {

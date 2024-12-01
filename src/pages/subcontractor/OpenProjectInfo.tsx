@@ -5,6 +5,7 @@ import React, { useState } from "react";
 import Modal from "react-modal";
 import { Formik, Form, Field } from "formik";
 import axios from "axios";
+import api from "../../../service/api.service";
 
 interface Project {
   id: number;
@@ -60,8 +61,8 @@ const OpenProjectInfo = ({project}: { project: Project | null }) => {
 
   const submitProposal = async (values: any, setSubmitting: any) => {
     try {
-      const response = await axios.post(
-        "https://ssnbuilders.ujwalkoirala.com.np/api/proposal/submit",
+      const response = await api.post(
+        "/proposal/submit",
         values
       );
       // Handle the response, e.g., show a success message or redirect

@@ -12,6 +12,7 @@ import axios from "axios";
 
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import api from "../../../service/api.service";
 
 interface Project {
   id: number;
@@ -78,8 +79,8 @@ const OpenProjectDetail = ({ project }: { project: Project | null }) => {
 
   const submitProposal = async (values: any, setSubmitting: any) => {
     try {
-      const response = await axios.post(
-        "https://ssnbuilders.ujwalkoirala.com.np/api/proposal/submit",
+      const response = await api.post(
+        "/proposal/submit",
         values
       );
       console.log(response);

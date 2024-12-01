@@ -8,6 +8,7 @@ import project8 from "../../../public/project8.jpg";
 import axios from "axios";
 import Image, {StaticImageData} from "next/image";
 import Link from "next/link";
+import api from "../../../service/api.service";
 
 type Tab = "All_Projects" | "Engineering" | "Construction" | string;
 
@@ -43,8 +44,8 @@ const PortfolioPage = () => {
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        const response = await axios.get<ApiResponseProject[]>(
-          "https://ssnbuilders.ujwalkoirala.com.np/api/projects"
+        const response = await api.get<ApiResponseProject[]>(
+          "/projects"
         );
         const data = response.data;
         console.log(data);

@@ -3,6 +3,7 @@
 import ProjectDetail from "@/pages/project-detail/ProjectDetail";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import api from "../../../../../service/api.service";
 
 interface Params {
   params: {
@@ -17,8 +18,8 @@ const PortfolioDetailPage = ({ params }: Params) => {
   useEffect(() => {
     const fetchProjectData = async () => {
       try {
-        const response = await axios.get(
-          `https://ssnbuilders.ujwalkoirala.com.np/api/projects/id/${id}`
+        const response = await api.get(
+          `/projects/id/${id}`
         );
         setProject(response.data);
         console.log(response.data);

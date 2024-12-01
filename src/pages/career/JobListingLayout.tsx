@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
+import api from "../../../service/api.service";
 
 interface Job {
   id: number;
@@ -60,8 +61,8 @@ const JobListingLayout: React.FC<JobListingLayoutProps> = ({ jobs }) => {
     formData.append("resume_url", values.resume_url as Blob);
 
     try {
-      const response = await axios.post(
-        "https://ssnbuilders.ujwalkoirala.com.np/api/apply-now",
+      const response = await api.post(
+        "/apply-now",
         formData
       );
       console.log(response.data);

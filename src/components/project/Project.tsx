@@ -7,6 +7,7 @@ import "swiper/css";
 import PortfolioLayout from "@/pages/portfolio/PortfolioLayout";
 import axios from "axios";
 import project8 from "../../../public/project8.jpg"
+import api from "../../../service/api.service";
 
 interface Project {
   id: number;
@@ -23,7 +24,7 @@ const Project = () => {
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        const response = await axios.get("https://ssnbuilders.ujwalkoirala.com.np/api/projects");
+        const response = await api.get("/projects");
         setPortfolios(response.data);
         console.log(response.data);
         

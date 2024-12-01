@@ -12,9 +12,9 @@ const page = () => {
       <div className="py-16">
         <ContactInformation />
       </div>
-      <div className="py-20">
+      {/* <div className="py-20">
         <ContactForm />
-      </div>
+      </div> */}
     </>
   );
 };

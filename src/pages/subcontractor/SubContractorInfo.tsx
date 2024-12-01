@@ -4,6 +4,7 @@ import axios from "axios";
 import ContractorProject from "./ContractorProject";
 
 import project1 from "../../../public/project1.jpg"
+import api from "../../../service/api.service";
 
 const bids = [
   {
@@ -48,8 +49,8 @@ const SubContractorInfo = () => {
 
   const fetchProjects = async () => {
     try {
-      const response = await axios.get(
-        "https://ssnbuilders.ujwalkoirala.com.np/api/projects"
+      const response = await api.get(
+        "/projects"
       );
       setProjects(response.data);
     } catch (error) {
